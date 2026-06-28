@@ -202,3 +202,22 @@ footer {
   .nav-links { gap: 1rem; }
   .places-grid { grid-template-columns: 1fr; }
 }
+
+/* INSTAGRAM LINK */
+.insta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--ink-light);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: color 0.2s;
+}
+.insta-link:hover { color: var(--accent); }
+.insta-icon {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
