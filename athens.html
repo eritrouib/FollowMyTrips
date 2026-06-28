@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Athens - Follow My Trips</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.dest-hero{width:100%;height:420px;background-size:cover;background-position:center;position:relative;}
+.dest-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.05) 60%,transparent 100%);}
+.dest-hero-label{position:absolute;bottom:2rem;left:2rem;color:#fff;}
+.dest-hero-sub{font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;opacity:0.85;display:block;margin-bottom:0.3rem;}
+.dest-hero-name{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:400;line-height:1.1;text-shadow:0 1px 5px rgba(0,0,0,0.4);}
+.dest-back{font-size:0.78rem;color:var(--ink-light);text-decoration:none;letter-spacing:0.05em;text-transform:uppercase;display:inline-flex;align-items:center;gap:0.4rem;}
+.dest-back:hover{color:var(--accent);}
+.dest-body{max-width:820px;margin:0 auto;padding:2.5rem 2rem 5rem;}
+.dest-intro{font-size:1rem;color:var(--ink-mid);max-width:640px;margin-bottom:2rem;line-height:1.8;}
+.dest-section{border-top:1px solid var(--rule);padding:2rem 0;}
+.dest-section h2{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:400;margin-bottom:1.2rem;}
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html"><span class="et-logo">@ET</span><span class="nav-site-name">Follow My Trips</span></a>
+  <ul class="nav-links"><li><a href="index.html">All cities</a></li><li><a href="#comments">Add a note</a></li></ul>
+</nav>
+
+<div class="dest-hero" style="background-image:url('https://images.unsplash.com/photo-1555993539-1732b0258235?w=1400&q=80');">
+  <div class="dest-hero-overlay"></div>
+  <div class="dest-hero-label">
+    <span class="dest-hero-sub">&#127468;&#127479; &nbsp; Lived here</span>
+    <div class="dest-hero-name">Athens</div>
+  </div>
+</div>
+
+<div class="dest-body">
+  <a class="dest-back" href="index.html">&#8592; All cities</a>
+  <p class="dest-intro" style="margin-top:1.5rem;">Athens is not just the Acropolis. That is obvious but still true. The city has neighbourhoods that feel completely different from each other and most visitors never get past the main sites. Give it at least four days.</p>
+
+  <div class="dest-section">
+    <h2>Where to eat</h2>
+    <div class="tip-box">
+      <p class="tip-label">O Thanasis</p>
+      <p class="tip-text">One of the most well known souvlaki restaurants in Athens, in Monastiraki. It has been there for decades and the food is consistently good. Go for the kebab and the grilled meat. <a href="https://foodaroundathens.com/2026/03/13/the-legend-of-o-thanasis/" target="_blank" rel="noopener">Read more about it</a> or find it on <a href="https://www.bing.com/maps/search?name=O+Thanasis&q=O+Thanasis&ss=id.ypid%3AYN8072x10160074016853179072&ppois=37.97626876831055_23.726356506347656_O+Thanasis&cp=37.976269%7E23.726357&lvl=15" target="_blank" rel="noopener">maps</a>.</p>
+    </div>
+  </div>
+
+  <div class="dest-section">
+    <h2>Places worth going</h2>
+    <div class="places-grid">
+      <div class="place"><p class="place-num">01</p><p class="place-name">Anafiotika</p><p class="place-desc">A cluster of white houses wedged into the north slope of the Acropolis rock. Looks like a Cycladic village dropped into the city. Quiet, cats everywhere. Most visitors walk straight past the entrance.</p></div>
+      <div class="place"><p class="place-num">02</p><p class="place-name">Monastiraki flea market</p><p class="place-desc">Sunday mornings. Vinyl, old maps, vintage cameras, metalwork, junk, the occasional good find. Get there before noon. The souvlaki stalls around the square open early.</p></div>
+      <div class="place"><p class="place-num">03</p><p class="place-name">Exarchia</p><p class="place-desc">It has a reputation but it is fine during the day and has some of the best cheap food in the city. Independent bookshops, political murals, very different atmosphere from the tourist areas.</p></div>
+      <div class="place"><p class="place-num">04</p><p class="place-name">Cape Sounion</p><p class="place-desc">Temple of Poseidon on a cliff 70km from Athens. Take the KTEL coastal bus, the road hugs the cliffs the whole way. Go for sunset. Byron carved his name into one of the columns.</p></div>
+      <div class="place"><p class="place-num">05</p><p class="place-name">National Archaeological Museum</p><p class="place-desc">One of the best museums in the world and often not crowded. The Antikythera Mechanism is there, a bronze computing device from 70BC that should not exist. Go and see it.</p></div>
+    </div>
+    <p class="coming-soon">Day trips, island ferries, where to eat by neighbourhood, and getting around Athens to come.</p>
+  </div>
+
+  <div class="dest-section comments-section" id="comments">
+    <p class="section-label">Reader notes</p>
+    <h2>Something to add?</h2>
+    <p class="comments-note">Leave a comment via GitHub.</p>
+    <div class="giscus"></div>
+    <script src="https://giscus.app/client.js"
+      data-repo="eritrouib/FollowMyTrips" data-repo-id="R_kgDOS21egg"
+      data-category="Announcements" data-category-id="DIC_kwDOS21egs4C-6B0"
+      data-mapping="pathname" data-strict="0" data-reactions-enabled="1"
+      data-emit-metadata="0" data-input-position="bottom"
+      data-theme="preferred_color_scheme" data-lang="en" crossorigin="anonymous" async></script>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">@ET</div>
+  <p class="footer-copy">&copy; <span id="yr"></span> Eriola. All rights reserved.</p>
+  <p class="footer-sub">Follow My Trips &nbsp;&#183;&nbsp; Part of a personal portfolio</p>
+  <p class="footer-credits">Photos courtesy of <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a>. To be replaced with original photography.</p>
+</footer>
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body>
+</html>

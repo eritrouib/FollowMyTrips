@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Barcelona - Follow My Trips</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.dest-hero{width:100%;height:420px;background-size:cover;background-position:center;position:relative;}
+.dest-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.05) 60%,transparent 100%);}
+.dest-hero-label{position:absolute;bottom:2rem;left:2rem;color:#fff;}
+.dest-hero-sub{font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;opacity:0.85;display:block;margin-bottom:0.3rem;}
+.dest-hero-name{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:400;line-height:1.1;text-shadow:0 1px 5px rgba(0,0,0,0.4);}
+.dest-back{font-size:0.78rem;color:var(--ink-light);text-decoration:none;letter-spacing:0.05em;text-transform:uppercase;display:inline-flex;align-items:center;gap:0.4rem;}
+.dest-back:hover{color:var(--accent);}
+.dest-body{max-width:820px;margin:0 auto;padding:2.5rem 2rem 5rem;}
+.dest-intro{font-size:1rem;color:var(--ink-mid);max-width:640px;margin-bottom:2rem;line-height:1.8;}
+.dest-section{border-top:1px solid var(--rule);padding:2rem 0;}
+.dest-section h2{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:400;margin-bottom:1.2rem;}
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html"><span class="et-logo">@ET</span><span class="nav-site-name">Follow My Trips</span></a>
+  <ul class="nav-links"><li><a href="index.html">All cities</a></li><li><a href="#comments">Add a note</a></li></ul>
+</nav>
+
+<div class="dest-hero" style="background-image:url('https://images.unsplash.com/photo-1539037116277-4db20889f2d4?w=1400&q=80');">
+  <div class="dest-hero-overlay"></div>
+  <div class="dest-hero-label">
+    <span class="dest-hero-sub">&#127466;&#127480; &nbsp; 3 visits</span>
+    <div class="dest-hero-name">Barcelona</div>
+  </div>
+</div>
+
+<div class="dest-body">
+  <a class="dest-back" href="index.html">&#8592; All cities</a>
+  <p class="dest-intro" style="margin-top:1.5rem;">I have been three times and would go back again. The Modernisme architecture is everywhere so you stop being surprised by it after a day, which is a good thing. Each neighbourhood has a different feel and it is worth getting out of the centre.</p>
+
+  <div class="dest-section">
+    <h2>Getting around</h2>
+    <div class="tip-box">
+      <p class="tip-label">Get the Hola Barcelona Travel Card first</p>
+      <p class="tip-text">The <a href="https://www.holabarcelona.com/tickets/hola-bcn-barcelona-travel-card" target="_blank" rel="noopener">Hola Barcelona Travel Card</a> covers metro, bus, tram, FGC and Rodalies trains, and the airport connection on Metro L9 Sud from T1 and T2. It does not cover the private Aerobus but you do not need it. Available for 2, 3, 4 or 5 consecutive days. Buy it at any metro station or at the airport on arrival. On public buses you show the card rather than tap it. If you go to Tibidabo it covers the lower funicular only.</p>
+    </div>
+    <div class="tip-box neutral">
+      <p class="tip-label">On food</p>
+      <p class="tip-text">Food anywhere away from the very touristy areas is noticeably better and cheaper. Do not sit at the restaurants on Las Ramblas. More expensive, smaller portions, and not great food. Walk one street back and things improve immediately.</p>
+    </div>
+  </div>
+
+  <div class="dest-section">
+    <h2>Places worth going</h2>
+    <div class="places-grid">
+      <div class="place"><p class="place-num">01</p><p class="place-name">Sagrada Familia</p><p class="place-desc">I have not been inside but many people say it is worth it. Book tickets well ahead online, the queues without a ticket are very long.</p></div>
+      <div class="place"><p class="place-num">02</p><p class="place-name">Casa Mila and Casa Batllo</p><p class="place-desc">Both are on opposite sides of Passeig de Gracia. Walk between them, keep going towards Placa de Catalunya and you reach La Rambla and the Mercat de la Boqueria from there.</p></div>
+      <div class="place"><p class="place-num">03</p><p class="place-name">Gothic Quarter and Cathedral</p><p class="place-desc">Worth a proper walk around. The Barcelona Cathedral is at the heart of it. Easy to spend a couple of hours just wandering the streets.</p></div>
+      <div class="place"><p class="place-num">04</p><p class="place-name">Parc Guell</p><p class="place-desc">Beautiful park with good views over the city. The main Monumental Zone requires a ticket, the rest of the park is free. Go in the morning before it fills up.</p></div>
+      <div class="place"><p class="place-num">05</p><p class="place-name">Montjuic Castle</p><p class="place-desc">More worth it if the Font Magica fountain is running and you combine it with a tour. There is a cable car up and it may be included in the Barcelona card but only at specific times, so check before you go.</p></div>
+      <div class="place"><p class="place-num">06</p><p class="place-name">Arc de Triomf to Ciutadella</p><p class="place-desc">Walk from Arc de Triomf down the tree-lined boulevard and into Parc de la Ciutadella. A good way to spend a morning.</p></div>
+      <div class="place"><p class="place-num">07</p><p class="place-name">Barceloneta</p><p class="place-desc">Walk along the beach. Plenty of restaurants along the seafront with decent food. A much better option than eating on Las Ramblas.</p></div>
+      <div class="place"><p class="place-num">08</p><p class="place-name">Tibidabo</p><p class="place-desc">Go for the view. The amusement park is very small and not really the reason to make the trip up. The lower funicular is covered by the Hola BCN card.</p></div>
+    </div>
+    <p class="coming-soon">Day trips (Sitges, Montserrat), more on neighbourhoods and where to eat to come.</p>
+  </div>
+
+  <div class="dest-section comments-section" id="comments">
+    <p class="section-label">Reader notes</p>
+    <h2>Something to add?</h2>
+    <p class="comments-note">Leave a comment via GitHub. You can delete anything from the Discussions tab in your repo.</p>
+    <div class="giscus"></div>
+    <script src="https://giscus.app/client.js"
+      data-repo="eritrouib/FollowMyTrips" data-repo-id="R_kgDOS21egg"
+      data-category="Announcements" data-category-id="DIC_kwDOS21egs4C-6B0"
+      data-mapping="pathname" data-strict="0" data-reactions-enabled="1"
+      data-emit-metadata="0" data-input-position="bottom"
+      data-theme="preferred_color_scheme" data-lang="en" crossorigin="anonymous" async></script>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">@ET</div>
+  <p class="footer-copy">&copy; <span id="yr"></span> Eriola. All rights reserved.</p>
+  <p class="footer-sub">Follow My Trips &nbsp;&#183;&nbsp; Part of a personal portfolio</p>
+  <p class="footer-credits">Photos courtesy of <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a>. To be replaced with original photography.</p>
+</footer>
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body>
+</html>
