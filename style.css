@@ -207,17 +207,22 @@ footer {
 .insta-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.5rem;
   font-size: 0.75rem;
-  font-weight: 400;
-  color: var(--ink-light);
+  font-weight: 500;
+  color: var(--paper);
+  background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
   text-decoration: none;
-  letter-spacing: 0.05em;
-  transition: color 0.2s;
+  letter-spacing: 0.04em;
+  padding: 0.35rem 0.85rem 0.35rem 0.65rem;
+  border-radius: 3px;
+  transition: opacity 0.2s;
+  white-space: nowrap;
 }
-.insta-link:hover { color: var(--accent); }
+.insta-link:hover { opacity: 0.85; color: var(--paper); }
 .insta-icon {
-  width: 16px;
-  height: 16px;
+  width: 15px;
+  height: 15px;
   fill: currentColor;
+  flex-shrink: 0;
 }
