@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Follow My Trips</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.site-header{padding:5rem 2rem 4rem;max-width:920px;margin:0 auto;border-bottom:1px solid var(--rule);}
+.site-header h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,3.5rem);font-weight:400;line-height:1.15;margin-bottom:1.2rem;}
+.site-header h1 em{font-style:italic;color:var(--accent);}
+.site-header p{font-size:1rem;color:var(--ink-mid);max-width:500px;line-height:1.75;}
+.city-grid{max-width:1100px;margin:0 auto;padding:2rem 2rem 5rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem;}
+.city-card{text-decoration:none;display:block;position:relative;overflow:hidden;border-radius:3px;aspect-ratio:4/3;}
+.city-card-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 0.4s;}
+.city-card:hover .city-card-bg{transform:scale(1.03);}
+.city-card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.65) 0%,rgba(0,0,0,0.05) 55%,transparent 100%);transition:background 0.3s;}
+.city-card:hover .city-card-overlay{background:linear-gradient(to top,rgba(0,0,0,0.75) 0%,rgba(0,0,0,0.15) 60%,transparent 100%);}
+.city-card-body{position:absolute;bottom:1.2rem;left:1.3rem;right:1.3rem;color:#fff;}
+.city-card-status{font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:400;opacity:0.8;margin-bottom:0.3rem;display:block;}
+.city-card-name{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:400;line-height:1.1;text-shadow:0 1px 4px rgba(0,0,0,0.4);}
+.city-card-teaser{font-size:0.8rem;opacity:0;margin-top:0.4rem;line-height:1.45;transition:opacity 0.2s;}
+.city-card:hover .city-card-teaser{opacity:0.9;}
+@media(max-width:600px){.city-grid{grid-template-columns:1fr 1fr;gap:0.8rem;padding:1.5rem 1.2rem 3rem;}.city-card-name{font-size:1.2rem;}.site-header{padding:3rem 1.2rem 2.5rem;}}
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html"><span class="et-logo">@ET</span><span class="nav-site-name">Follow My Trips</span></a>
+  <ul class="nav-links">
+    
+    <li><a href="#comments">Add a note</a></li>
+  </ul>
+  <a class="insta-link" href="https://www.instagram.com/placesdesignsbyet?igsh=MW1ob2t5dmRjZzY2dg==" target="_blank" rel="noopener">
+    <svg class="insta-icon" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+    <span>Want to see my trips in watercolour? Visit my places&amp;designs page</span>
+  </a>
+</nav>
+<header class="site-header">
+  <h1>Cities I have been to.<br><em>The ones worth knowing.</em></h1>
+  <p>I travel a lot and people ask me where to go and what to do. This is my running list. No fluff, just what I have found works.</p>
+</header>
+<div class="city-grid">
+
+  <a class="city-card" href="albania.html" data-region="albania">
+    <div style="background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&q=80');" class="city-card-bg"></div>
+    <div class="city-card-overlay"></div>
+    <div class="city-card-body">
+      <span class="city-card-status">🇦🇱 &nbsp; 8 cities</span>
+      <div class="city-card-name">Albania</div>
+      <div class="city-card-teaser">I grew up in Elbasan and have been back many times. Albania has an ancient history that go...</div>
+    </div>
+  </a>
+  <a class="city-card" href="greece.html" data-region="greece">
+    <div style="background-image:url('https://images.unsplash.com/photo-1555993539-1732b0258235?w=1200&q=80');" class="city-card-bg"></div>
+    <div class="city-card-overlay"></div>
+    <div class="city-card-body">
+      <span class="city-card-status">🇬🇷 &nbsp; 10 cities</span>
+      <div class="city-card-name">Greece</div>
+      <div class="city-card-teaser">I lived in Athens and have travelled widely across Greece. The islands get most of the att...</div>
+    </div>
+  </a>
+  <a class="city-card" href="uk.html" data-region="uk">
+    <div style="background-image:url('https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=1200&q=80');" class="city-card-bg"></div>
+    <div class="city-card-overlay"></div>
+    <div class="city-card-body">
+      <span class="city-card-status">🇬🇧 &nbsp; 15 cities</span>
+      <div class="city-card-name">United Kingdom</div>
+      <div class="city-card-teaser">I live in London and have travelled around the UK quite a bit. It is a much more varied co...</div>
+    </div>
+  </a>
+  <a class="city-card" href="spain.html" data-region="spain">
+    <div style="background-image:url('https://images.unsplash.com/photo-1539037116277-4db20889f2d4?w=1200&q=80');" class="city-card-bg"></div>
+    <div class="city-card-overlay"></div>
+    <div class="city-card-body">
+      <span class="city-card-status">🇪🇸 &nbsp; 8 cities</span>
+      <div class="city-card-name">Spain</div>
+      <div class="city-card-teaser">I have been to Barcelona three times and travelled through Andalucia on several visits. Ve...</div>
+    </div>
+  </a>
+  <a class="city-card" href="italy.html" data-region="italy">
+    <div style="background-image:url('https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=1200&q=80');" class="city-card-bg"></div>
+    <div class="city-card-overlay"></div>
+    <div class="city-card-body">
+      <span class="city-card-status">🇮🇹 &nbsp; 4 cities</span>
+      <div class="city-card-name">Italy</div>
+      <div class="city-card-teaser">Rome, Venice, Florence, Pisa. Notes being written up.</div>
+    </div>
+  </a>
+  <a class="city-card" href="balkans.html" data-region="balkans">
+    <div style="background-image:url('https://images.unsplash.com/photo-1555993539-1732b0258235?w=1200&q=80');" class="city-card-bg"></div>
+    <div class="city-card-overlay"></div>
+    <div class="city-card-body">
+      <span class="city-card-status">🗺 &nbsp; 4 cities</span>
+      <div class="city-card-name">Balkans</div>
+      <div class="city-card-teaser">Kosovo, Montenegro and Croatia. Small distances, very different places.</div>
+    </div>
+  </a>
+  <a class="city-card" href="central-europe.html" data-region="central-europe">
+    <div style="background-image:url('https://images.unsplash.com/photo-1516550893923-42d28e5677af?w=1200&q=80');" class="city-card-bg"></div>
+    <div class="city-card-overlay"></div>
+    <div class="city-card-body">
+      <span class="city-card-status">🗺 &nbsp; 13 cities</span>
+      <div class="city-card-name">Central Europe</div>
+      <div class="city-card-teaser">Vienna, Budapest, Prague area, Switzerland, Benelux, France and Germany. A mix of very dif...</div>
+    </div>
+  </a>
+</div>
+<footer>
+  <div class="footer-logo">@ET</div>
+  <p class="footer-copy">&copy; <span id="yr"></span> Eriola. All rights reserved.</p>
+  <p class="footer-sub">Follow My Trips &nbsp;&#183;&nbsp; Part of a personal portfolio</p>
+  <p class="footer-credits">Photos courtesy of <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a> where not original photography.</p>
+</footer>
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body>
+</html>
