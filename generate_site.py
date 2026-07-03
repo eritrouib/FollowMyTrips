@@ -722,11 +722,13 @@ INSTA_SVG = '<svg class="insta-icon" viewBox="0 0 24 24"><path d="M12 2.163c3.20
 def nav(current_file="index.html"):
     back = "" if current_file == "index.html" else "index.html"
     home_link = f'<li><a href="{back if back else "#"}">{"All countries" if back else "Home"}</a></li>' if back else ""
+    # On index, comments anchor works. On country pages, link to #site-comments which is a general anchor
+    comments_href = "#comments" if current_file == "index.html" else "#site-comments"
     return f"""<nav>
   <a class="nav-logo" href="index.html"><span class="et-logo">{LOGO}</span><span class="nav-site-name">{SITE_NAME}</span></a>
   <ul class="nav-links">
     {home_link}
-    <li><a href="#comments">Add a note</a></li>
+    <li><a href="{comments_href}">Add a note</a></li>
   </ul>
   <a class="insta-link" href="{INSTAGRAM_URL}" target="_blank" rel="noopener">
     {INSTA_SVG}
@@ -766,9 +768,24 @@ def giscus_block(term=None):
     )
 
 def photo_gallery(country_key, city_key):
-    """Renders a gallery that loads images from photos/<country>/<city>/"""
+    """Scans the photos folder at build time and embeds actual filenames in HTML."""
     folder = f"photos/{country_key}/{city_key}"
-    return f"""<div class="city-photos" id="gallery-{city_key}" data-folder="{folder}"></div>
+    out_dir = os.path.dirname(os.path.abspath(__file__))
+    folder_path = os.path.join(out_dir, folder)
+    exts = {'.jpg', '.jpeg', '.png', '.webp', '.JPG', '.JPEG', '.PNG', '.WEBP'}
+    photos = []
+    if os.path.isdir(folder_path):
+        photos = sorted([
+            f for f in os.listdir(folder_path)
+            if os.path.splitext(f)[1] in exts
+        ])[:10]
+    if not photos:
+        return ""
+    imgs = "\n".join(
+        f'''<img src="{folder}/{p}" alt="" loading="lazy" onclick="openLb('{city_key}',{i})">'''
+        for i, p in enumerate(photos)
+    )
+    return f"""<div class="city-photos" id="gallery-{city_key}">{imgs}</div>
 <div class="lightbox" id="lb-{city_key}">
   <span class="lightbox-close" onclick="closeLb('{city_key}')">&times;</span>
   <span class="lightbox-prev" onclick="lbNav('{city_key}',-1)">&#8249;</span>
@@ -863,36 +880,7 @@ document.querySelectorAll('.lightbox').forEach(function(lb) {
 });
 """
 
-PHOTO_LOADER_JS = """
-// Photo gallery loader
-// Reads photos from photos/<country>/<city>/ folder
-// Supports jpg, jpeg, png, webp, up to 10 per city
-(function() {
-  var galleries = document.querySelectorAll('.city-photos');
-  galleries.forEach(function(gallery) {
-    var folder = gallery.dataset.folder;
-    var cityKey = gallery.id.replace('gallery-', '');
-    var exts = ['jpg','jpeg','png','webp'];
-    var found = 0;
-    var maxPhotos = 10;
-    for (var i = 1; i <= maxPhotos; i++) {
-      exts.forEach(function(ext) {
-        if (found >= maxPhotos) return;
-        (function(num, extension) {
-          var img = new Image();
-          img.onload = function() {
-            img.style.cursor = 'pointer';
-            var idx = gallery.children.length;
-            img.onclick = (function(k, n) { return function() { openLb(k, n); }; })(cityKey, idx);
-            gallery.appendChild(img);
-          };
-          img.src = folder + '/' + num + '.' + extension;
-        })(i, ext);
-      });
-    }
-  });
-})();
-"""
+PHOTO_LOADER_JS = ""  # Photos are now embedded at build time by photo_gallery()
 
 # ── PAGE BUILDERS ──────────────────────────────────────────────────────────────
 
@@ -1001,7 +989,12 @@ def build_country(country, out_dir):
 
   {sections}
 
-  <!-- Comments are per city, shown inside each city section above -->
+  <div id="site-comments" style="border-top:2px solid var(--rule);padding:3rem 0 2rem;">
+    <p style="font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-light);font-weight:500;margin-bottom:1rem;">General notes</p>
+    <h2 style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:400;margin-bottom:0.4rem;">Something to add about {country['name']}?</h2>
+    <p style="font-size:0.83rem;color:var(--ink-light);margin-bottom:1.5rem;">General feedback about this page, or a city you think should be added.</p>
+    {giscus_block("general-" + country["key"])}
+  </div>
 </div>
 
 {footer()}

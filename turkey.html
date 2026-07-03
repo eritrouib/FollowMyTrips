@@ -10,7 +10,7 @@
   <a class="nav-logo" href="index.html"><span class="et-logo">@ET</span><span class="nav-site-name">Follow My Trips</span></a>
   <ul class="nav-links">
     <li><a href="index.html">All countries</a></li>
-    <li><a href="#comments">Add a note</a></li>
+    <li><a href="#site-comments">Add a note</a></li>
   </ul>
   <a class="insta-link" href="https://www.instagram.com/placesdesignsbyet?igsh=MW1ob2t5dmRjZzY2dg==" target="_blank" rel="noopener">
     <svg class="insta-icon" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
@@ -38,13 +38,7 @@
   <span class="city-status">🇹🇷 Visited</span>
   <h2 class="city-heading">Antalya, <em>Turkey</em></h2>
   <div class="city-stub">Notes coming soon.</div>
-  <div class="city-photos" id="gallery-antalya" data-folder="photos/turkey/antalya"></div>
-<div class="lightbox" id="lb-antalya">
-  <span class="lightbox-close" onclick="closeLb('antalya')">&times;</span>
-  <span class="lightbox-prev" onclick="lbNav('antalya',-1)">&#8249;</span>
-  <img id="lb-img-antalya" src="" alt="">
-  <span class="lightbox-next" onclick="lbNav('antalya',1)">&#8250;</span>
-</div>
+  
   <details class="city-comments"><summary>Leave a note about Antalya</summary><div class="city-comments-inner"><div class="giscus-turkey-antalya"></div>
 <script src="https://giscus.app/client.js"
   data-repo="eritrouib/FollowMyTrips" data-repo-id="R_kgDOS21egg"
@@ -57,13 +51,7 @@
   <span class="city-status">🇹🇷 Visited</span>
   <h2 class="city-heading">Side, <em>Turkey</em></h2>
   <div class="city-stub">Notes coming soon.</div>
-  <div class="city-photos" id="gallery-side" data-folder="photos/turkey/side"></div>
-<div class="lightbox" id="lb-side">
-  <span class="lightbox-close" onclick="closeLb('side')">&times;</span>
-  <span class="lightbox-prev" onclick="lbNav('side',-1)">&#8249;</span>
-  <img id="lb-img-side" src="" alt="">
-  <span class="lightbox-next" onclick="lbNav('side',1)">&#8250;</span>
-</div>
+  
   <details class="city-comments"><summary>Leave a note about Side</summary><div class="city-comments-inner"><div class="giscus-turkey-side"></div>
 <script src="https://giscus.app/client.js"
   data-repo="eritrouib/FollowMyTrips" data-repo-id="R_kgDOS21egg"
@@ -73,7 +61,18 @@
   data-theme="preferred_color_scheme" data-lang="en" crossorigin="anonymous" async></script></div></details>
 </div>
 
-  <!-- Comments are per city, shown inside each city section above -->
+  <div id="site-comments" style="border-top:2px solid var(--rule);padding:3rem 0 2rem;">
+    <p style="font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-light);font-weight:500;margin-bottom:1rem;">General notes</p>
+    <h2 style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:400;margin-bottom:0.4rem;">Something to add about Turkey?</h2>
+    <p style="font-size:0.83rem;color:var(--ink-light);margin-bottom:1.5rem;">General feedback about this page, or a city you think should be added.</p>
+    <div class="giscus-general-turkey"></div>
+<script src="https://giscus.app/client.js"
+  data-repo="eritrouib/FollowMyTrips" data-repo-id="R_kgDOS21egg"
+  data-category="Announcements" data-category-id="DIC_kwDOS21egs4C-6B0"
+  data-mapping="specific" data-term="general-turkey" data-strict="0" data-reactions-enabled="1"
+  data-emit-metadata="0" data-input-position="bottom"
+  data-theme="preferred_color_scheme" data-lang="en" crossorigin="anonymous" async></script>
+  </div>
 </div>
 
 <footer>
@@ -111,35 +110,6 @@ document.querySelectorAll('.lightbox').forEach(function(lb) {
   });
 });
 
-
-// Photo gallery loader
-// Reads photos from photos/<country>/<city>/ folder
-// Supports jpg, jpeg, png, webp, up to 10 per city
-(function() {
-  var galleries = document.querySelectorAll('.city-photos');
-  galleries.forEach(function(gallery) {
-    var folder = gallery.dataset.folder;
-    var cityKey = gallery.id.replace('gallery-', '');
-    var exts = ['jpg','jpeg','png','webp'];
-    var found = 0;
-    var maxPhotos = 10;
-    for (var i = 1; i <= maxPhotos; i++) {
-      exts.forEach(function(ext) {
-        if (found >= maxPhotos) return;
-        (function(num, extension) {
-          var img = new Image();
-          img.onload = function() {
-            img.style.cursor = 'pointer';
-            var idx = gallery.children.length;
-            img.onclick = (function(k, n) { return function() { openLb(k, n); }; })(cityKey, idx);
-            gallery.appendChild(img);
-          };
-          img.src = folder + '/' + num + '.' + extension;
-        })(i, ext);
-      });
-    }
-  });
-})();
 
 </script>
 </body>
