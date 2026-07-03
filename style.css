@@ -340,3 +340,32 @@ footer {
   .country-body{padding:1.5rem 1.2rem 3rem;}
   .country-nav{padding:1rem 1.2rem;}
 }
+
+/* COLLAPSIBLE CITY COMMENTS */
+.city-comments {
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+  padding-top: 1rem;
+}
+.city-comments summary {
+  font-size: 0.78rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.city-comments summary::-webkit-details-marker { display: none; }
+.city-comments summary::before {
+  content: '+';
+  font-size: 1rem;
+  color: var(--accent);
+  line-height: 1;
+}
+.city-comments[open] summary::before { content: '-'; }
+.city-comments summary:hover { color: var(--accent); }
+.city-comments-inner { margin-top: 1rem; }

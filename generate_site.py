@@ -645,6 +645,74 @@ COUNTRIES = [
             },
         ],
     },
+    {
+        "key": "north-macedonia",
+        "name": "North Macedonia",
+        "flag": "🇲🇰",
+        "photo": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80",
+        "intro": "A small country that most people pass through without stopping. Worth slowing down for.",
+        "cities": [
+            {
+                "key": "ohrid",
+                "name": "Ohrid",
+                "country_label": "North Macedonia",
+                "status": "Visited",
+                "intro": "",
+                "tips": [],
+                "places": [],
+                "food": [],
+            },
+            {
+                "key": "struga",
+                "name": "Struga",
+                "country_label": "North Macedonia",
+                "status": "Visited",
+                "intro": "",
+                "tips": [],
+                "places": [],
+                "food": [],
+            },
+            {
+                "key": "skopje",
+                "name": "Skopje",
+                "country_label": "North Macedonia",
+                "status": "Visited",
+                "intro": "",
+                "tips": [],
+                "places": [],
+                "food": [],
+            },
+        ],
+    },
+    {
+        "key": "turkey",
+        "name": "Turkey",
+        "flag": "🇹🇷",
+        "photo": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=1200&q=80",
+        "intro": "Visited Antalya and Side. The coast is beautiful and the history is remarkable.",
+        "cities": [
+            {
+                "key": "antalya",
+                "name": "Antalya",
+                "country_label": "Turkey",
+                "status": "Visited",
+                "intro": "",
+                "tips": [],
+                "places": [],
+                "food": [],
+            },
+            {
+                "key": "side",
+                "name": "Side",
+                "country_label": "Turkey",
+                "status": "Visited",
+                "intro": "",
+                "tips": [],
+                "places": [],
+                "food": [],
+            },
+        ],
+    },
 ]
 
 # ── HELPERS ────────────────────────────────────────────────────────────────────
@@ -751,10 +819,13 @@ def city_section_html(city, country_key):
 
     gallery = photo_gallery(country_key, city["key"])
     city_term = f"{country_key}-{city['key']}"
-    comments = f'''<div style="margin-top:2rem;border-top:1px solid var(--rule);padding-top:1.5rem;">
-  <p class="section-label">Notes on {city["name"]}</p>
-  {giscus_block(city_term)}
-</div>'''
+    comments = (
+        '<details class="city-comments">'
+        '<summary>Leave a note about ' + city["name"] + '</summary>'
+        '<div class="city-comments-inner">' +
+        giscus_block(city_term) +
+        '</div></details>'
+    )
 
     return f"""<div class="city-section" id="{city['key']}">
   <span class="city-status">{city['flag'] if 'flag' in city else ''} {city['status']}</span>
@@ -880,6 +951,12 @@ def build_index(out_dir):
 </header>
 <div class="city-grid">
 {cards}
+</div>
+<div style="max-width:820px;margin:0 auto;padding:3rem 2rem 5rem;border-top:1px solid var(--rule);">
+  <p style="font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-light);font-weight:500;margin-bottom:1rem;">General notes</p>
+  <h2 style="font-family:Playfair Display,serif;font-size:1.4rem;font-weight:400;margin-bottom:0.4rem;">Something to say?</h2>
+  <p style="font-size:0.83rem;color:var(--ink-light);margin-bottom:1.5rem;">General feedback, suggestions, or a city you think I should visit.</p>
+  {giscus_block()}
 </div>
 {footer()}
 </body>
