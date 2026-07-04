@@ -771,7 +771,8 @@ def giscus_block(term=None):
     )
 
 def photo_gallery(country_key, city_key):
-    """Scans the photos folder at build time and embeds actual filenames in HTML."""
+    """Scans photos at build time, writes a JSON manifest, browser loads from it."""
+    import json
     folder = f"photos/{country_key}/{city_key}"
     out_dir = os.path.dirname(os.path.abspath(__file__))
     folder_path = os.path.join(out_dir, folder)
@@ -781,14 +782,27 @@ def photo_gallery(country_key, city_key):
         photos = sorted([
             f for f in os.listdir(folder_path)
             if os.path.splitext(f)[1] in exts
-        ])[:10]
+        ])[:20]
+    # Always write the manifest (even if empty) so browser knows the folder was scanned
+    manifest_dir = os.path.join(out_dir, "photos", country_key, city_key)
+    os.makedirs(manifest_dir, exist_ok=True)
+    manifest_path = os.path.join(manifest_dir, "photos.json")
+    with open(manifest_path, "w") as mf:
+        json.dump(photos, mf)
     if not photos:
-        return ""
+        # Return placeholder div so lightbox JS has something to work with
+        return f'''<div class="city-photos" id="gallery-{city_key}" data-folder="{folder}"></div>
+<div class="lightbox" id="lb-{city_key}">
+  <span class="lightbox-close" onclick="closeLb('{city_key}')">&times;</span>
+  <span class="lightbox-prev" onclick="lbNav('{city_key}',-1)">&#8249;</span>
+  <img id="lb-img-{city_key}" src="" alt="">
+  <span class="lightbox-next" onclick="lbNav('{city_key}',1)">&#8250;</span>
+</div>'''
     imgs = "\n".join(
         f'''<img src="{folder}/{p}" alt="" loading="lazy" onclick="openLb('{city_key}',{i})">'''
         for i, p in enumerate(photos)
     )
-    return f"""<div class="city-photos" id="gallery-{city_key}">{imgs}</div>
+    return f"""<div class="city-photos" id="gallery-{city_key}" data-folder="{folder}">{imgs}</div>
 <div class="lightbox" id="lb-{city_key}">
   <span class="lightbox-close" onclick="closeLb('{city_key}')">&times;</span>
   <span class="lightbox-prev" onclick="lbNav('{city_key}',-1)">&#8249;</span>
@@ -880,7 +894,32 @@ document.querySelectorAll('.lightbox').forEach(function(lb) {
 });
 """
 
-PHOTO_LOADER_JS = ""  # Photos are now embedded at build time by photo_gallery()
+PHOTO_LOADER_JS = """
+// For cities where the generator found no local photos,
+// try loading from the JSON manifest that lists files on GitHub
+(function() {
+  var galleries = document.querySelectorAll('.city-photos');
+  galleries.forEach(function(gallery) {
+    if (gallery.children.length > 0) return; // already has photos from build time
+    var folder = gallery.dataset.folder;
+    var cityKey = gallery.id.replace('gallery-', '');
+    if (!folder) return;
+    fetch(folder + '/photos.json')
+      .then(function(r) { return r.json(); })
+      .then(function(files) {
+        files.forEach(function(filename, i) {
+          var img = document.createElement('img');
+          img.src = folder + '/' + filename;
+          img.alt = '';
+          img.loading = 'lazy';
+          img.onclick = (function(k, n) { return function() { openLb(k, n); }; })(cityKey, i);
+          gallery.appendChild(img);
+        });
+      })
+      .catch(function() {}); // silently fail if no manifest
+  });
+})();
+"""
 
 # ── PAGE BUILDERS ──────────────────────────────────────────────────────────────
 

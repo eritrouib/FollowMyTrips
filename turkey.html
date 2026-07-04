@@ -38,14 +38,26 @@
   <span class="city-status">🇹🇷 Visited</span>
   <h2 class="city-heading">Antalya, <em>Turkey</em></h2>
   <div class="city-stub">Notes coming soon.</div>
-  
+  <div class="city-photos" id="gallery-antalya" data-folder="photos/turkey/antalya"></div>
+<div class="lightbox" id="lb-antalya">
+  <span class="lightbox-close" onclick="closeLb('antalya')">&times;</span>
+  <span class="lightbox-prev" onclick="lbNav('antalya',-1)">&#8249;</span>
+  <img id="lb-img-antalya" src="" alt="">
+  <span class="lightbox-next" onclick="lbNav('antalya',1)">&#8250;</span>
+</div>
   <p class="city-note-link">Have a tip about Antalya? <a href="index.html#comments">Leave a note on the main page</a>.</p>
 </div>
 <div class="city-section" id="side">
   <span class="city-status">🇹🇷 Visited</span>
   <h2 class="city-heading">Side, <em>Turkey</em></h2>
   <div class="city-stub">Notes coming soon.</div>
-  
+  <div class="city-photos" id="gallery-side" data-folder="photos/turkey/side"></div>
+<div class="lightbox" id="lb-side">
+  <span class="lightbox-close" onclick="closeLb('side')">&times;</span>
+  <span class="lightbox-prev" onclick="lbNav('side',-1)">&#8249;</span>
+  <img id="lb-img-side" src="" alt="">
+  <span class="lightbox-next" onclick="lbNav('side',1)">&#8250;</span>
+</div>
   <p class="city-note-link">Have a tip about Side? <a href="index.html#comments">Leave a note on the main page</a>.</p>
 </div>
 
@@ -98,6 +110,31 @@ document.querySelectorAll('.lightbox').forEach(function(lb) {
   });
 });
 
+
+// For cities where the generator found no local photos,
+// try loading from the JSON manifest that lists files on GitHub
+(function() {
+  var galleries = document.querySelectorAll('.city-photos');
+  galleries.forEach(function(gallery) {
+    if (gallery.children.length > 0) return; // already has photos from build time
+    var folder = gallery.dataset.folder;
+    var cityKey = gallery.id.replace('gallery-', '');
+    if (!folder) return;
+    fetch(folder + '/photos.json')
+      .then(function(r) { return r.json(); })
+      .then(function(files) {
+        files.forEach(function(filename, i) {
+          var img = document.createElement('img');
+          img.src = folder + '/' + filename;
+          img.alt = '';
+          img.loading = 'lazy';
+          img.onclick = (function(k, n) { return function() { openLb(k, n); }; })(cityKey, i);
+          gallery.appendChild(img);
+        });
+      })
+      .catch(function() {}); // silently fail if no manifest
+  });
+})();
 
 </script>
 </body>

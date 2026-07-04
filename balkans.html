@@ -42,49 +42,91 @@
 
 
 
-  
+  <div class="city-photos" id="gallery-prizren" data-folder="photos/balkans/prizren"></div>
+<div class="lightbox" id="lb-prizren">
+  <span class="lightbox-close" onclick="closeLb('prizren')">&times;</span>
+  <span class="lightbox-prev" onclick="lbNav('prizren',-1)">&#8249;</span>
+  <img id="lb-img-prizren" src="" alt="">
+  <span class="lightbox-next" onclick="lbNav('prizren',1)">&#8250;</span>
+</div>
   <p class="city-note-link">Have a tip about Prizren? <a href="index.html#comments">Leave a note on the main page</a>.</p>
 </div>
 <div class="city-section" id="budva">
   <span class="city-status">🗺 Visited</span>
   <h2 class="city-heading">Budva, <em>Montenegro</em></h2>
   <div class="city-stub">Notes coming soon.</div>
-  
+  <div class="city-photos" id="gallery-budva" data-folder="photos/balkans/budva"></div>
+<div class="lightbox" id="lb-budva">
+  <span class="lightbox-close" onclick="closeLb('budva')">&times;</span>
+  <span class="lightbox-prev" onclick="lbNav('budva',-1)">&#8249;</span>
+  <img id="lb-img-budva" src="" alt="">
+  <span class="lightbox-next" onclick="lbNav('budva',1)">&#8250;</span>
+</div>
   <p class="city-note-link">Have a tip about Budva? <a href="index.html#comments">Leave a note on the main page</a>.</p>
 </div>
 <div class="city-section" id="dubrovnik">
   <span class="city-status">🗺 Visited</span>
   <h2 class="city-heading">Dubrovnik, <em>Croatia</em></h2>
   <div class="city-stub">Notes coming soon.</div>
-  
+  <div class="city-photos" id="gallery-dubrovnik" data-folder="photos/balkans/dubrovnik"></div>
+<div class="lightbox" id="lb-dubrovnik">
+  <span class="lightbox-close" onclick="closeLb('dubrovnik')">&times;</span>
+  <span class="lightbox-prev" onclick="lbNav('dubrovnik',-1)">&#8249;</span>
+  <img id="lb-img-dubrovnik" src="" alt="">
+  <span class="lightbox-next" onclick="lbNav('dubrovnik',1)">&#8250;</span>
+</div>
   <p class="city-note-link">Have a tip about Dubrovnik? <a href="index.html#comments">Leave a note on the main page</a>.</p>
 </div>
 <div class="city-section" id="split">
   <span class="city-status">🗺 Visited</span>
   <h2 class="city-heading">Split, <em>Croatia</em></h2>
   <div class="city-stub">Notes coming soon.</div>
-  
+  <div class="city-photos" id="gallery-split" data-folder="photos/balkans/split"></div>
+<div class="lightbox" id="lb-split">
+  <span class="lightbox-close" onclick="closeLb('split')">&times;</span>
+  <span class="lightbox-prev" onclick="lbNav('split',-1)">&#8249;</span>
+  <img id="lb-img-split" src="" alt="">
+  <span class="lightbox-next" onclick="lbNav('split',1)">&#8250;</span>
+</div>
   <p class="city-note-link">Have a tip about Split? <a href="index.html#comments">Leave a note on the main page</a>.</p>
 </div>
 <div class="city-section" id="ohrid">
   <span class="city-status">🗺 Visited</span>
   <h2 class="city-heading">Ohrid, <em>North Macedonia</em></h2>
   <div class="city-stub">Notes coming soon.</div>
-  
+  <div class="city-photos" id="gallery-ohrid" data-folder="photos/balkans/ohrid"></div>
+<div class="lightbox" id="lb-ohrid">
+  <span class="lightbox-close" onclick="closeLb('ohrid')">&times;</span>
+  <span class="lightbox-prev" onclick="lbNav('ohrid',-1)">&#8249;</span>
+  <img id="lb-img-ohrid" src="" alt="">
+  <span class="lightbox-next" onclick="lbNav('ohrid',1)">&#8250;</span>
+</div>
   <p class="city-note-link">Have a tip about Ohrid? <a href="index.html#comments">Leave a note on the main page</a>.</p>
 </div>
 <div class="city-section" id="struga">
   <span class="city-status">🗺 Visited</span>
   <h2 class="city-heading">Struga, <em>North Macedonia</em></h2>
   <div class="city-stub">Notes coming soon.</div>
-  
+  <div class="city-photos" id="gallery-struga" data-folder="photos/balkans/struga"></div>
+<div class="lightbox" id="lb-struga">
+  <span class="lightbox-close" onclick="closeLb('struga')">&times;</span>
+  <span class="lightbox-prev" onclick="lbNav('struga',-1)">&#8249;</span>
+  <img id="lb-img-struga" src="" alt="">
+  <span class="lightbox-next" onclick="lbNav('struga',1)">&#8250;</span>
+</div>
   <p class="city-note-link">Have a tip about Struga? <a href="index.html#comments">Leave a note on the main page</a>.</p>
 </div>
 <div class="city-section" id="skopje">
   <span class="city-status">🗺 Visited</span>
   <h2 class="city-heading">Skopje, <em>North Macedonia</em></h2>
   <div class="city-stub">Notes coming soon.</div>
-  
+  <div class="city-photos" id="gallery-skopje" data-folder="photos/balkans/skopje"></div>
+<div class="lightbox" id="lb-skopje">
+  <span class="lightbox-close" onclick="closeLb('skopje')">&times;</span>
+  <span class="lightbox-prev" onclick="lbNav('skopje',-1)">&#8249;</span>
+  <img id="lb-img-skopje" src="" alt="">
+  <span class="lightbox-next" onclick="lbNav('skopje',1)">&#8250;</span>
+</div>
   <p class="city-note-link">Have a tip about Skopje? <a href="index.html#comments">Leave a note on the main page</a>.</p>
 </div>
 
@@ -137,6 +179,31 @@ document.querySelectorAll('.lightbox').forEach(function(lb) {
   });
 });
 
+
+// For cities where the generator found no local photos,
+// try loading from the JSON manifest that lists files on GitHub
+(function() {
+  var galleries = document.querySelectorAll('.city-photos');
+  galleries.forEach(function(gallery) {
+    if (gallery.children.length > 0) return; // already has photos from build time
+    var folder = gallery.dataset.folder;
+    var cityKey = gallery.id.replace('gallery-', '');
+    if (!folder) return;
+    fetch(folder + '/photos.json')
+      .then(function(r) { return r.json(); })
+      .then(function(files) {
+        files.forEach(function(filename, i) {
+          var img = document.createElement('img');
+          img.src = folder + '/' + filename;
+          img.alt = '';
+          img.loading = 'lazy';
+          img.onclick = (function(k, n) { return function() { openLb(k, n); }; })(cityKey, i);
+          gallery.appendChild(img);
+        });
+      })
+      .catch(function() {}); // silently fail if no manifest
+  });
+})();
 
 </script>
 </body>
