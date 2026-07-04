@@ -514,7 +514,7 @@ COUNTRIES = [
         "key": "balkans",
         "name": "Balkans",
         "flag": "🗺",
-        "photo": "https://images.unsplash.com/photo-1555993539-1732b0258235?w=1200&q=80",
+        "photo": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80",
         "intro": "Kosovo, Montenegro and Croatia. Small distances, very different places.",
         "cities": [
             {
@@ -551,6 +551,36 @@ COUNTRIES = [
                 "key": "split",
                 "name": "Split",
                 "country_label": "Croatia",
+                "status": "Visited",
+                "intro": "",
+                "tips": [],
+                "places": [],
+                "food": [],
+            },
+            {
+                "key": "ohrid",
+                "name": "Ohrid",
+                "country_label": "North Macedonia",
+                "status": "Visited",
+                "intro": "",
+                "tips": [],
+                "places": [],
+                "food": [],
+            },
+            {
+                "key": "struga",
+                "name": "Struga",
+                "country_label": "North Macedonia",
+                "status": "Visited",
+                "intro": "",
+                "tips": [],
+                "places": [],
+                "food": [],
+            },
+            {
+                "key": "skopje",
+                "name": "Skopje",
+                "country_label": "North Macedonia",
                 "status": "Visited",
                 "intro": "",
                 "tips": [],
@@ -646,45 +676,6 @@ COUNTRIES = [
         ],
     },
     {
-        "key": "north-macedonia",
-        "name": "North Macedonia",
-        "flag": "🇲🇰",
-        "photo": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80",
-        "intro": "A small country that most people pass through without stopping. Worth slowing down for.",
-        "cities": [
-            {
-                "key": "ohrid",
-                "name": "Ohrid",
-                "country_label": "North Macedonia",
-                "status": "Visited",
-                "intro": "",
-                "tips": [],
-                "places": [],
-                "food": [],
-            },
-            {
-                "key": "struga",
-                "name": "Struga",
-                "country_label": "North Macedonia",
-                "status": "Visited",
-                "intro": "",
-                "tips": [],
-                "places": [],
-                "food": [],
-            },
-            {
-                "key": "skopje",
-                "name": "Skopje",
-                "country_label": "North Macedonia",
-                "status": "Visited",
-                "intro": "",
-                "tips": [],
-                "places": [],
-                "food": [],
-            },
-        ],
-    },
-    {
         "key": "turkey",
         "name": "Turkey",
         "flag": "🇹🇷",
@@ -723,7 +714,7 @@ def nav(current_file="index.html"):
     back = "" if current_file == "index.html" else "index.html"
     home_link = f'<li><a href="{back if back else "#"}">{"All countries" if back else "Home"}</a></li>' if back else ""
     # On index, comments anchor works. On country pages, link to #site-comments which is a general anchor
-    comments_href = "#comments" if current_file == "index.html" else "#site-comments"
+    comments_href = "#comments" if current_file == "index.html" else "/#comments"
     return f"""<nav>
   <a class="nav-logo" href="index.html"><span class="et-logo">{LOGO}</span><span class="nav-site-name">{SITE_NAME}</span></a>
   <ul class="nav-links">
@@ -835,13 +826,10 @@ def city_section_html(city, country_key):
 {food_html(city['food'])}"""
 
     gallery = photo_gallery(country_key, city["key"])
-    city_term = f"{country_key}-{city['key']}"
     comments = (
-        '<details class="city-comments">'
-        '<summary>Leave a note about ' + city["name"] + '</summary>'
-        '<div class="city-comments-inner">' +
-        giscus_block(city_term) +
-        '</div></details>'
+        '<p class="city-note-link">Have a tip about ' + city["name"] + '? '
+        '<a href="/#comments">Leave a note on the main page</a>.'
+        '</p>'
     )
 
     return f"""<div class="city-section" id="{city['key']}">

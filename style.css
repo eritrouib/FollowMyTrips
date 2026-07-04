@@ -369,3 +369,13 @@ footer {
 .city-comments[open] summary::before { content: '-'; }
 .city-comments summary:hover { color: var(--accent); }
 .city-comments-inner { margin-top: 1rem; }
+
+/* CITY NOTE LINK */
+.city-note-link {
+  font-size: 0.83rem;
+  color: var(--ink-light);
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+}
+.city-note-link a { color: var(--accent); }
