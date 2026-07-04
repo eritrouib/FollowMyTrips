@@ -514,7 +514,7 @@ COUNTRIES = [
         "key": "balkans",
         "name": "Balkans",
         "flag": "🗺",
-        "photo": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80",
+        "photo": "https://images.unsplash.com/photo-1555990538-1e3e3a4aef79?w=1200&q=80",
         "intro": "Kosovo, Montenegro and Croatia. Small distances, very different places.",
         "cities": [
             {
@@ -714,7 +714,7 @@ def nav(current_file="index.html"):
     back = "" if current_file == "index.html" else "index.html"
     home_link = f'<li><a href="{back if back else "#"}">{"All countries" if back else "Home"}</a></li>' if back else ""
     # On index, comments anchor works. On country pages, link to #site-comments which is a general anchor
-    comments_href = "#comments" if current_file == "index.html" else "/#comments"
+    comments_href = "#comments" if current_file == "index.html" else "../index.html#comments"
     return f"""<nav>
   <a class="nav-logo" href="index.html"><span class="et-logo">{LOGO}</span><span class="nav-site-name">{SITE_NAME}</span></a>
   <ul class="nav-links">
@@ -828,7 +828,7 @@ def city_section_html(city, country_key):
     gallery = photo_gallery(country_key, city["key"])
     comments = (
         '<p class="city-note-link">Have a tip about ' + city["name"] + '? '
-        '<a href="/#comments">Leave a note on the main page</a>.'
+        '<a href="../index.html#comments">Leave a note on the main page</a>.'
         '</p>'
     )
 
