@@ -374,6 +374,18 @@ COUNTRIES = [
                 "key": "leeds", "name": "Leeds", "country_label": "United Kingdom", "status": "Visited",
                 "intro": "", "tips": [], "places": [], "food": [],
             },
+            {
+                "key": "oxford", "name": "Oxford", "country_label": "United Kingdom", "status": "Visited",
+                "intro": "", "tips": [], "places": [], "food": [],
+            },
+            {
+                "key": "cambridge", "name": "Cambridge", "country_label": "United Kingdom", "status": "Visited",
+                "intro": "", "tips": [], "places": [], "food": [],
+            },
+            {
+                "key": "windsor", "name": "Windsor", "country_label": "United Kingdom", "status": "Visited",
+                "intro": "", "tips": [], "places": [], "food": [],
+            },
         ],
     },
     {
@@ -714,7 +726,7 @@ def nav(current_file="index.html"):
     back = "" if current_file == "index.html" else "index.html"
     home_link = f'<li><a href="{back if back else "#"}">{"All countries" if back else "Home"}</a></li>' if back else ""
     # On index, comments anchor works. On country pages, link to #site-comments which is a general anchor
-    comments_href = "#comments" if current_file == "index.html" else "../index.html#comments"
+    comments_href = "#comments" if current_file == "index.html" else "index.html#comments"
     return f"""<nav>
   <a class="nav-logo" href="index.html"><span class="et-logo">{LOGO}</span><span class="nav-site-name">{SITE_NAME}</span></a>
   <ul class="nav-links">
@@ -828,7 +840,7 @@ def city_section_html(city, country_key):
     gallery = photo_gallery(country_key, city["key"])
     comments = (
         '<p class="city-note-link">Have a tip about ' + city["name"] + '? '
-        '<a href="../index.html#comments">Leave a note on the main page</a>.'
+        '<a href="index.html#comments">Leave a note on the main page</a>.'
         '</p>'
     )
 
