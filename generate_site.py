@@ -526,7 +526,7 @@ COUNTRIES = [
         "key": "balkans",
         "name": "Balkans",
         "flag": "🗺",
-        "photo": "https://images.unsplash.com/photo-1555990538-1e3e3a4aef79?w=1200&q=80",
+        "photo": "https://images.unsplash.com/photo-1554585343-acd99e31977b?w=1200&q=80",
         "intro": "Kosovo, Montenegro and Croatia. Small distances, very different places.",
         "cities": [
             {
