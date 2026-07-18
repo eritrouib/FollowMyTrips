@@ -723,13 +723,32 @@ COUNTRIES = [
         "key": "gibraltar",
         "name": "Gibraltar",
         "flag": "🇬🇮",
-        "photo": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80",
+        "photo": "https://images.unsplash.com/photo-1559308573-0abf29faa17d?w=1200&q=80",
         "intro": "A British Overseas Territory on the southern tip of Spain. A very short visit is enough to see most of it but it is a curious and interesting place.",
         "cities": [
             {
                 "key": "gibraltar",
                 "name": "Gibraltar",
-                "country_label": "British Overseas Territory",
+                "country_label": "United Kingdom",
+                "status": "Visited",
+                "intro": "",
+                "tips": [],
+                "places": [],
+                "food": [],
+            },
+        ],
+    },
+    {
+        "key": "romania",
+        "name": "Romania",
+        "flag": "🇷🇴",
+        "photo": "https://images.unsplash.com/photo-1574616979112-f9f52d3747f8?w=1200&q=80",
+        "intro": "I have visited Craiova and plan to explore more of Romania in the future.",
+        "cities": [
+            {
+                "key": "craiova",
+                "name": "Craiova",
+                "country_label": "Romania",
                 "status": "Visited",
                 "intro": "",
                 "tips": [],
@@ -767,6 +786,34 @@ COUNTRIES = [
             },
         ],
     },
+]
+
+
+# ── MAP DATA ───────────────────────────────────────────────────────────────────
+# Countries visited with approximate centre coordinates for the map marker
+# Add new countries here as you visit them
+VISITED_COUNTRIES_MAP = [
+    {"name": "Albania",         "lat": 41.1533,  "lng": 20.1683},
+    {"name": "Greece",          "lat": 39.0742,  "lng": 21.8243},
+    {"name": "United Kingdom",  "lat": 55.3781,  "lng": -3.4360},
+    {"name": "Spain",           "lat": 40.4637,  "lng": -3.7492},
+    {"name": "Italy",           "lat": 41.8719,  "lng": 12.5674},
+    {"name": "Kosovo",          "lat": 42.6026,  "lng": 20.9030},
+    {"name": "Montenegro",      "lat": 42.7087,  "lng": 19.3744},
+    {"name": "Croatia",         "lat": 45.1000,  "lng": 15.2000},
+    {"name": "North Macedonia", "lat": 41.6086,  "lng": 21.7453},
+    {"name": "Austria",         "lat": 47.5162,  "lng": 14.5501},
+    {"name": "Hungary",         "lat": 47.1625,  "lng": 19.5033},
+    {"name": "Slovakia",        "lat": 48.6690,  "lng": 19.6990},
+    {"name": "Czech Republic",  "lat": 49.8175,  "lng": 15.4730},
+    {"name": "Germany",         "lat": 51.1657,  "lng": 10.4515},
+    {"name": "Switzerland",     "lat": 46.8182,  "lng": 8.2275},
+    {"name": "Luxembourg",      "lat": 49.8153,  "lng": 6.1296},
+    {"name": "Belgium",         "lat": 50.5039,  "lng": 4.4699},
+    {"name": "France",          "lat": 46.2276,  "lng": 2.2137},
+    {"name": "Netherlands",     "lat": 52.1326,  "lng": 5.2913},
+    {"name": "Romania",         "lat": 45.9432,  "lng": 24.9668},
+    {"name": "Turkey",          "lat": 38.9637,  "lng": 35.2433},
 ]
 
 # ── HELPERS ────────────────────────────────────────────────────────────────────
@@ -1001,10 +1048,17 @@ def build_index(out_dir):
     total_cities = 0
     for c in COUNTRIES:
         for city in c["cities"]:
-            unique_countries.add(city.get("country_label", c["name"]))
+            label = city.get("country_label", c["name"])
+            unique_countries.add(label)
             total_cities += 1
+    # Remove Gibraltar as it is not an independent country
+    unique_countries.discard("British Overseas Territory")
     country_count = len(unique_countries)
     city_count = total_cities
+
+    # Build map markers JSON
+    import json as _json
+    map_markers = _json.dumps(VISITED_COUNTRIES_MAP)
 
     html = f"""<!DOCTYPE html>
 <html lang="en">
@@ -1012,6 +1066,7 @@ def build_index(out_dir):
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{SITE_NAME}</title>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <style>
 .site-header{{padding:5rem 2rem 4rem;max-width:920px;margin:0 auto;border-bottom:1px solid var(--rule);}}
 .site-header h1{{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,3.5rem);font-weight:400;line-height:1.15;margin-bottom:1.2rem;}}
@@ -1042,6 +1097,11 @@ def build_index(out_dir):
     <div class="stat stat-dream"><span class="stat-label">Next big dream: a long trip across Asia</span></div>
   </div>
 </header>
+<div style="max-width:1100px;margin:0 auto;padding:2rem 2rem 0;">
+  <p style="font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-light);font-weight:500;margin-bottom:1rem;">Where I have been</p>
+  <div id="trip-map" style="height:420px;border-radius:3px;border:1px solid var(--rule);"></div>
+</div>
+
 <div class="city-grid">
 {cards}
 </div>
@@ -1052,6 +1112,32 @@ def build_index(out_dir):
   {giscus_block()}
 </div>
 {footer()}
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+(function() {{
+  var markers = {map_markers};
+  var map = L.map('trip-map', {{
+    center: [50, 15],
+    zoom: 4,
+    scrollWheelZoom: false,
+    zoomControl: true
+  }});
+  L.tileLayer('https://{{s}}.basemaps.cartocdn.com/light_all/{{z}}/{{x}}/{{y}}{{r}}.png', {{
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>',
+    maxZoom: 10,
+    minZoom: 3
+  }}).addTo(map);
+  var dot = L.divIcon({{
+    className: '',
+    html: '<div style="width:10px;height:10px;background:#c05a2e;border-radius:50%;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,0.3);"></div>',
+    iconSize: [10,10],
+    iconAnchor: [5,5]
+  }});
+  markers.forEach(function(m) {{
+    L.marker([m.lat, m.lng], {{icon: dot}}).addTo(map).bindPopup(m.name);
+  }});
+}})();
+</script>
 </body>
 </html>"""
     build_page(html, "index.html", out_dir)
@@ -1071,10 +1157,17 @@ def build_country(country, out_dir):
     total_cities = 0
     for c in COUNTRIES:
         for city in c["cities"]:
-            unique_countries.add(city.get("country_label", c["name"]))
+            label = city.get("country_label", c["name"])
+            unique_countries.add(label)
             total_cities += 1
+    # Remove Gibraltar as it is not an independent country
+    unique_countries.discard("British Overseas Territory")
     country_count = len(unique_countries)
     city_count = total_cities
+
+    # Build map markers JSON
+    import json as _json
+    map_markers = _json.dumps(VISITED_COUNTRIES_MAP)
 
     html = f"""<!DOCTYPE html>
 <html lang="en">
