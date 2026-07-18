@@ -477,16 +477,7 @@ COUNTRIES = [
                 "places": [],
                 "food": [],
             },
-            {
-                "key": "gibraltar",
-                "name": "Gibraltar",
-                "country_label": "Gibraltar",
-                "status": "Visited",
-                "intro": "",
-                "tips": [],
-                "places": [],
-                "food": [],
-            },
+
         ],
     },
     {
@@ -724,6 +715,25 @@ COUNTRIES = [
                     {"name": "Erasmusbrug", "desc": "The famous bridge over the Maas. Worth seeing, especially from the waterfront. <a href='https://www.google.com/maps/place/Erasmusbrug/@51.9072417,4.4636707,14.33z' target='_blank' rel='noopener'>Map</a>"},
                     {"name": "Witte de Withstraat", "desc": "A well known street with lots of restaurants and bars. Used to be the hip area of the city. Worth a walk even just to look around. <a href='https://www.google.com/maps/place/Witte+de+Withstraat,+Rotterdam' target='_blank' rel='noopener'>Map</a>"},
                 ],
+                "food": [],
+            },
+        ],
+    },
+    {
+        "key": "gibraltar",
+        "name": "Gibraltar",
+        "flag": "🇬🇮",
+        "photo": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80",
+        "intro": "A British Overseas Territory on the southern tip of Spain. A very short visit is enough to see most of it but it is a curious and interesting place.",
+        "cities": [
+            {
+                "key": "gibraltar",
+                "name": "Gibraltar",
+                "country_label": "British Overseas Territory",
+                "status": "Visited",
+                "intro": "",
+                "tips": [],
+                "places": [],
                 "food": [],
             },
         ],
@@ -986,6 +996,16 @@ def build_index(out_dir):
     </div>
   </a>"""
 
+    # Count unique countries and total cities
+    unique_countries = set()
+    total_cities = 0
+    for c in COUNTRIES:
+        for city in c["cities"]:
+            unique_countries.add(city.get("country_label", c["name"]))
+            total_cities += 1
+    country_count = len(unique_countries)
+    city_count = total_cities
+
     html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1014,8 +1034,13 @@ def build_index(out_dir):
 <body>
 {nav("index.html")}
 <header class="site-header">
-  <h1>Cities I have been to.<br><em>The ones worth knowing.</em></h1>
-  <p>I travel a lot and people ask me where to go and what to do. This is my running list. No fluff, just what I have found works.</p>
+  <h1>Places I have visited.<br><em>What caught my eye and stayed with me.</em></h1>
+  <p>I love travelling and love to share what I found interesting about the places I have visited. These are my notes, not a complete guide. There is always more to discover and things I have missed.</p>
+  <div class="site-stats">
+    <div class="stat"><span class="stat-num">{country_count}</span><span class="stat-label">countries</span></div>
+    <div class="stat"><span class="stat-num">{city_count}</span><span class="stat-label">cities</span></div>
+    <div class="stat stat-dream"><span class="stat-label">Next big dream: a long trip across Asia</span></div>
+  </div>
 </header>
 <div class="city-grid">
 {cards}
@@ -1040,6 +1065,16 @@ def build_country(country, out_dir):
         city_section_html({**c, "flag": country["flag"]}, country["key"])
         for c in country["cities"]
     )
+
+    # Count unique countries and total cities
+    unique_countries = set()
+    total_cities = 0
+    for c in COUNTRIES:
+        for city in c["cities"]:
+            unique_countries.add(city.get("country_label", c["name"]))
+            total_cities += 1
+    country_count = len(unique_countries)
+    city_count = total_cities
 
     html = f"""<!DOCTYPE html>
 <html lang="en">

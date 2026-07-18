@@ -379,3 +379,46 @@ footer {
   border-top: 1px solid var(--rule);
 }
 .city-note-link a { color: var(--accent); }
+
+/* SITE STATS */
+.site-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  align-items: center;
+}
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: var(--accent);
+  line-height: 1;
+}
+.stat-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  font-weight: 500;
+}
+.stat-dream {
+  border-left: 2px solid var(--rule);
+  padding-left: 1.5rem;
+  margin-left: 0.5rem;
+}
+.stat-dream .stat-label {
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  color: var(--ink-mid);
+  font-style: italic;
+}
+@media(max-width:600px){
+  .stat-dream { border-left: none; padding-left: 0; margin-left: 0; border-top: 1px solid var(--rule); padding-top: 1rem; }
+}
