@@ -297,8 +297,9 @@ COUNTRIES = [
         "cities": [
             {
                 "key": "london",
+                "country_label": "England",
                 "name": "London",
-                "country_label": "United Kingdom",
+                "country_label": "England",
                 "status": "Where I live",
                 "intro": "London is enormous and people often see very little of it. Before I moved here I visited several times, and my European friends have all said the same thing: they expected one city and found something much bigger.",
                 "tips": [
@@ -319,71 +320,71 @@ COUNTRIES = [
                 "food": [],
             },
             {
-                "key": "brighton", "name": "Brighton", "country_label": "United Kingdom", "status": "Visited",
+                "key": "brighton", "country_label": "England", "name": "Brighton", "country_label": "England", "status": "Visited",
                 "intro": "", "tips": [], "places": [], "food": [],
             },
             {
-                "key": "bath", "name": "Bath", "country_label": "United Kingdom", "status": "Visited",
+                "key": "bath", "country_label": "England", "name": "Bath", "country_label": "England", "status": "Visited",
                 "intro": "", "tips": [], "places": [], "food": [],
             },
             {
-                "key": "bristol", "name": "Bristol", "country_label": "United Kingdom", "status": "Visited",
+                "key": "bristol", "country_label": "England", "name": "Bristol", "country_label": "England", "status": "Visited",
                 "intro": "", "tips": [], "places": [], "food": [],
             },
             {
-                "key": "cardiff", "name": "Cardiff", "country_label": "United Kingdom", "status": "Visited",
+                "key": "cardiff", "country_label": "Wales", "name": "Cardiff", "country_label": "Wales", "status": "Visited",
                 "intro": "", "tips": [], "places": [], "food": [],
             },
             {
-                "key": "birmingham", "name": "Birmingham", "country_label": "United Kingdom", "status": "Visited",
+                "key": "birmingham", "country_label": "England", "name": "Birmingham", "country_label": "England", "status": "Visited",
                 "intro": "", "tips": [], "places": [], "food": [],
             },
             {
-                "key": "edinburgh", "name": "Edinburgh", "country_label": "United Kingdom", "status": "Visited",
+                "key": "edinburgh", "country_label": "Scotland", "name": "Edinburgh", "country_label": "Scotland", "status": "Visited",
                 "intro": "", "tips": [], "places": [], "food": [],
             },
             {
-                "key": "glasgow", "name": "Glasgow", "country_label": "United Kingdom", "status": "Visited",
+                "key": "glasgow", "country_label": "Scotland", "name": "Glasgow", "country_label": "Scotland", "status": "Visited",
                 "intro": "", "tips": [], "places": [], "food": [],
             },
             {
-                "key": "liverpool", "name": "Liverpool", "country_label": "United Kingdom", "status": "Visited",
+                "key": "liverpool", "country_label": "England", "name": "Liverpool", "country_label": "England", "status": "Visited",
                 "intro": "", "tips": [], "places": [], "food": [],
             },
             {
-                "key": "manchester", "name": "Manchester", "country_label": "United Kingdom", "status": "Visited",
+                "key": "manchester", "country_label": "England", "name": "Manchester", "country_label": "England", "status": "Visited",
                 "intro": "", "tips": [], "places": [], "food": [],
             },
             {
-                "key": "southampton", "name": "Southampton", "country_label": "United Kingdom", "status": "Visited",
+                "key": "southampton", "country_label": "England", "name": "Southampton", "country_label": "England", "status": "Visited",
                 "intro": "", "tips": [], "places": [], "food": [],
             },
             {
-                "key": "poole", "name": "Poole", "country_label": "United Kingdom", "status": "Visited",
+                "key": "poole", "country_label": "England", "name": "Poole", "country_label": "England", "status": "Visited",
                 "intro": "", "tips": [], "places": [], "food": [],
             },
             {
-                "key": "portsmouth", "name": "Portsmouth", "country_label": "United Kingdom", "status": "Visited",
+                "key": "portsmouth", "country_label": "England", "name": "Portsmouth", "country_label": "England", "status": "Visited",
                 "intro": "", "tips": [], "places": [], "food": [],
             },
             {
-                "key": "worthing", "name": "Worthing", "country_label": "United Kingdom", "status": "Visited",
+                "key": "worthing", "country_label": "England", "name": "Worthing", "country_label": "England", "status": "Visited",
                 "intro": "", "tips": [], "places": [], "food": [],
             },
             {
-                "key": "leeds", "name": "Leeds", "country_label": "United Kingdom", "status": "Visited",
+                "key": "leeds", "country_label": "England", "name": "Leeds", "country_label": "England", "status": "Visited",
                 "intro": "", "tips": [], "places": [], "food": [],
             },
             {
-                "key": "oxford", "name": "Oxford", "country_label": "United Kingdom", "status": "Visited",
+                "key": "oxford", "country_label": "England", "name": "Oxford", "country_label": "England", "status": "Visited",
                 "intro": "", "tips": [], "places": [], "food": [],
             },
             {
-                "key": "cambridge", "name": "Cambridge", "country_label": "United Kingdom", "status": "Visited",
+                "key": "cambridge", "country_label": "England", "name": "Cambridge", "country_label": "England", "status": "Visited",
                 "intro": "", "tips": [], "places": [], "food": [],
             },
             {
-                "key": "windsor", "name": "Windsor", "country_label": "United Kingdom", "status": "Visited",
+                "key": "windsor", "country_label": "England", "name": "Windsor", "country_label": "England", "status": "Visited",
                 "intro": "", "tips": [], "places": [], "food": [],
             },
         ],
@@ -795,7 +796,9 @@ COUNTRIES = [
 VISITED_COUNTRIES_MAP = [
     {"name": "Albania",         "lat": 41.1533,  "lng": 20.1683},
     {"name": "Greece",          "lat": 39.0742,  "lng": 21.8243},
-    {"name": "United Kingdom",  "lat": 55.3781,  "lng": -3.4360},
+    {"name": "England",         "lat": 52.3555,  "lng": -1.1743},
+    {"name": "Scotland",        "lat": 56.4907,  "lng": -4.2026},
+    {"name": "Wales",           "lat": 52.1307,  "lng": -3.7837},
     {"name": "Spain",           "lat": 40.4637,  "lng": -3.7492},
     {"name": "Italy",           "lat": 41.8719,  "lng": 12.5674},
     {"name": "Kosovo",          "lat": 42.6026,  "lng": 20.9030},
