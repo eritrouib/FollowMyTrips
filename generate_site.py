@@ -682,14 +682,44 @@ COUNTRIES = [
                 "name": "Amsterdam",
                 "country_label": "Netherlands",
                 "status": "Visited",
+                "intro": "A city that works very well if you plan ahead. We went with kids and it was great but a few things to know before you go.",
+                "tips": [
+                    {"label": "Getting there by train with kids", "text": "If travelling with children under 12, look into the <strong>Railrunner</strong> ticket. It costs only 2.50 euros per child and covers them on the train. Worth checking before you book full price tickets for the family.", "neutral": False},
+                    {"label": "Public transport in Amsterdam", "text": "The GVB (city transport) day ticket for children under 12 costs around 5 euros but you can only buy it at specific stations, not all of them. Check the <a href=\'https://en.gvb.nl/\' target=\'_blank\' rel=\'noopener\'>GVB website</a> before you go to find which ones near you sell it.", "neutral": False},
+                    {"label": "Book museums well ahead", "text": "The Anne Frank House sells out very fast on the official site. Book nearly a month before your visit if you can. Do not rely on getting tickets on the day.", "neutral": False},
+                    {"label": "Toilets in the city centre", "text": "Worth knowing if you are with children: many places in the city centre will not let you use the restroom unless you are a paying customer. This can be handled quite rudely. Plan ahead when you are out with kids.", "neutral": True},
+                    {"label": "Food prices", "text": "Generally found food prices quite expensive in restaurants. The markets and food halls are much better value.", "neutral": True},
+                ],
+                "places": [
+                    {"name": "Anne Frank House", "desc": "Book nearly a month ahead on the official site. Tickets sell out very quickly. <a href=\'https://www.annefrank.org/en/museum/tickets/\' target=\'_blank\' rel=\'noopener\'>Book here</a>"},
+                    {"name": "Koninklijk Paleis (Royal Palace)", "desc": "On Dam Square in the centre. Well worth going inside."},
+                    {"name": "Rijksmuseum and Vondelpark by bike", "desc": "We hired bikes and cycled there. One of the best ways to see Amsterdam. Vondelpark is beautiful and right next to the museum."},
+                    {"name": "Canal tour", "desc": "Worth doing at least once to see the city from the water. Many options, check prices before booking as they vary a lot."},
+                    {"name": "Albert Cuypmarkt", "desc": "A large street market with food, flowers, clothes and everything else. Note it is not open on Sundays."},
+                    {"name": "Foodhallen", "desc": "Indoor food market at Bellamyplein. Good variety and much better value than sitting in a restaurant. Lively atmosphere."},
+                    {"name": "Haarlem day trip", "desc": "Very much worth a visit. Easy train from Amsterdam. Nice walk around the city and much less crowded than Amsterdam."},
+                    {"name": "Zaandam and Zaanse Schans", "desc": "The windmills and traditional Dutch village. Much cheaper to take the train from Amsterdam than booking a tour bus, and just as easy. Trains run frequently."},
+                ],
+                "food": [
+                    {"name": "Braai BBQ Bar", "desc": "A good option in Amsterdam."},
+                    {"name": "Pantry", "desc": "Traditional Dutch food on Leidsekruisstraat. You must book ahead. Worth it. <a href=\'https://maps.app.goo.gl/\' target=\'_blank\' rel=\'noopener\'>Find it on maps</a>"},
+                    {"name": "Burger Bar (smash burgers)", "desc": "Has multiple locations. The one we liked is right next to a canal and has tables outside. Great burgers and fries, skip the milkshakes. <a href=\'https://maps.app.goo.gl/c1MRqLAnjtNUXKZZ8\' target=\'_blank\' rel=\'noopener\'>Map</a>"},
+                    {"name": "Roti Shop, Haarlem", "desc": "Amazing Indian food in Haarlem, just outside Amsterdam. Highly recommended. <a href=\'https://maps.app.goo.gl/E6PdAovs8MNQi3tm6\' target=\'_blank\' rel=\'noopener\'>Map</a>"},
+                ],
+            },
+            {
+                "key": "the-hague",
+                "name": "The Hague",
+                "country_label": "Netherlands",
+                "status": "Visited",
                 "intro": "",
                 "tips": [],
                 "places": [],
                 "food": [],
             },
             {
-                "key": "the-hague",
-                "name": "The Hague",
+                "key": "leiden",
+                "name": "Leiden",
                 "country_label": "Netherlands",
                 "status": "Visited",
                 "intro": "",
@@ -819,6 +849,51 @@ VISITED_COUNTRIES_MAP = [
     {"name": "Turkey",          "lat": 38.9637,  "lng": 35.2433},
 ]
 
+
+# City coordinates for zoomed-in map view
+CITY_COORDS = {
+    "tirana": (41.3275, 19.8187), "elbasan": (41.1125, 20.0822),
+    "gjirokaster": (40.0758, 20.1389), "sarande": (39.8750, 20.0069),
+    "durres": (41.3246, 19.4565), "vlore": (40.4667, 19.4833),
+    "korce": (40.6186, 20.7808), "pogradec": (40.9025, 20.6553),
+    "athens": (37.9838, 23.7275), "thessaloniki": (40.6401, 22.9444),
+    "kalamata": (37.0365, 22.1142), "ioannina": (39.6650, 20.8537),
+    "corfu": (39.6243, 19.9217), "kefalonia": (38.1753, 20.5693),
+    "chalcis": (38.4624, 23.6030), "volos": (39.3666, 22.9389),
+    "methoni": (36.8197, 21.7058), "kastoria": (40.5194, 21.2686),
+    "london": (51.5074, -0.1278), "brighton": (50.8225, -0.1372),
+    "bath": (51.3751, -2.3617), "bristol": (51.4545, -2.5879),
+    "cardiff": (51.4816, -3.1791), "birmingham": (52.4862, -1.8904),
+    "edinburgh": (55.9533, -3.1883), "glasgow": (55.8642, -4.2518),
+    "liverpool": (53.4084, -2.9916), "manchester": (53.4808, -2.2426),
+    "southampton": (50.9097, -1.4044), "poole": (50.7150, -1.9870),
+    "portsmouth": (50.8198, -1.0880), "worthing": (50.8120, -0.3714),
+    "leeds": (53.8008, -1.5491), "oxford": (51.7520, -1.2577),
+    "cambridge": (52.2053, 0.1218), "windsor": (51.4839, -0.6044),
+    "barcelona": (41.3851, 2.1734), "seville": (37.3891, -5.9845),
+    "cordoba": (37.8882, -4.7794), "granada": (37.1773, -3.5986),
+    "malaga": (36.7213, -4.4214), "ronda": (36.7466, -5.1612),
+    "cadiz": (36.5298, -6.2927),
+    "rome": (41.9028, 12.4964), "venice": (45.4408, 12.3155),
+    "florence": (43.7696, 11.2558), "pisa": (43.7228, 10.4017),
+    "prizren": (42.2139, 20.7397), "budva": (42.2864, 18.8400),
+    "dubrovnik": (42.6507, 18.0944), "split": (43.5081, 16.4402),
+    "ohrid": (41.1231, 20.8016), "struga": (41.1781, 20.6783),
+    "skopje": (41.9973, 21.4280),
+    "vienna": (48.2082, 16.3738), "budapest": (47.4979, 19.0402),
+    "bratislava": (48.1486, 17.1077), "brno": (49.1951, 16.6068),
+    "heidelberg": (49.3988, 8.6724), "dusseldorf": (51.2217, 6.7762),
+    "zurich": (47.3769, 8.5417), "luxembourg": (49.6116, 6.1319),
+    "brussels": (50.8503, 4.3517), "bruges": (51.2093, 3.2247),
+    "ghent": (51.0543, 3.7174), "paris": (48.8566, 2.3522),
+    "eindhoven": (51.4416, 5.4697), "amsterdam": (52.3676, 4.9041),
+    "the-hague": (52.0705, 4.3007), "rotterdam": (51.9244, 4.4777),
+    "leiden": (52.1601, 4.4970),
+    "antalya": (36.8969, 30.7133), "side": (36.7675, 31.3889),
+    "craiova": (44.3302, 23.7949),
+    "gibraltar": (36.1408, -5.3536),
+}
+
 # ── HELPERS ────────────────────────────────────────────────────────────────────
 
 INSTA_SVG = '<svg class="insta-icon" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>'
@@ -883,7 +958,7 @@ def photo_gallery(country_key, city_key):
         photos = sorted([
             f for f in os.listdir(folder_path)
             if os.path.splitext(f)[1] in exts
-        ])[:20]
+        ])[:30]
     # Always write the manifest (even if empty) so browser knows the folder was scanned
     manifest_dir = os.path.join(out_dir, "photos", country_key, city_key)
     os.makedirs(manifest_dir, exist_ok=True)
@@ -952,7 +1027,16 @@ def city_section_html(city, country_key):
 {places_html(city['places'])}
 {food_html(city['food'])}"""
 
-    gallery = photo_gallery(country_key, city["key"])
+    raw_gallery = photo_gallery(country_key, city["key"])
+    if raw_gallery:
+        gallery = (
+            '<details class="photo-album">'
+            '<summary>&#128247; View photos</summary>'
+            '<div class="photo-album-inner">' + raw_gallery + '</div>'
+            '</details>'
+        )
+    else:
+        gallery = ""
     comments = (
         '<p class="city-note-link">Have a tip about ' + city["name"] + '? '
         '<a href="index.html#comments">Leave a note on the main page</a>.'
@@ -1063,6 +1147,21 @@ def build_index(out_dir):
     import json as _json
     map_markers = _json.dumps(VISITED_COUNTRIES_MAP)
 
+    # Build city markers JSON
+    city_markers_list = []
+    for c in COUNTRIES:
+        for city in c["cities"]:
+            coords = CITY_COORDS.get(city["key"])
+            if coords:
+                city_markers_list.append({
+                    "name": city["name"],
+                    "country": city.get("country_label", c["name"]),
+                    "lat": coords[0],
+                    "lng": coords[1],
+                    "page": c["key"] + ".html#" + city["key"]
+                })
+    city_markers = _json.dumps(city_markers_list)
+
     html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1118,7 +1217,8 @@ def build_index(out_dir):
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
 (function() {{
-  var markers = {map_markers};
+  var countryMarkers = {map_markers};
+  var cityMarkers = {city_markers};
   var map = L.map('trip-map', {{
     center: [50, 15],
     zoom: 4,
@@ -1126,18 +1226,41 @@ def build_index(out_dir):
     zoomControl: true
   }});
   L.tileLayer('https://{{s}}.basemaps.cartocdn.com/light_all/{{z}}/{{x}}/{{y}}{{r}}.png', {{
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>',
-    maxZoom: 10,
+    attribution: '&copy; OpenStreetMap &copy; CARTO',
+    maxZoom: 12,
     minZoom: 3
   }}).addTo(map);
-  var dot = L.divIcon({{
+
+  var countryDot = L.divIcon({{
     className: '',
-    html: '<div style="width:10px;height:10px;background:#c05a2e;border-radius:50%;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,0.3);"></div>',
-    iconSize: [10,10],
-    iconAnchor: [5,5]
+    html: '<div style="width:12px;height:12px;background:#c05a2e;border-radius:50%;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,0.35);"></div>',
+    iconSize: [12,12], iconAnchor: [6,6]
   }});
-  markers.forEach(function(m) {{
-    L.marker([m.lat, m.lng], {{icon: dot}}).addTo(map).bindPopup(m.name);
+  var cityDot = L.divIcon({{
+    className: '',
+    html: '<div style="width:7px;height:7px;background:#e8a07a;border-radius:50%;border:1.5px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,0.25);"></div>',
+    iconSize: [7,7], iconAnchor: [3.5,3.5]
+  }});
+
+  var cLayers = [], ciLayers = [];
+  countryMarkers.forEach(function(m) {{
+    cLayers.push(L.marker([m.lat, m.lng], {{icon: countryDot}}).bindPopup('<strong>' + m.name + '</strong>'));
+  }});
+  cityMarkers.forEach(function(m) {{
+    ciLayers.push(L.marker([m.lat, m.lng], {{icon: cityDot}}).bindPopup(m.name + '<br><small>' + m.country + '</small>'));
+  }});
+
+  var countryGroup = L.layerGroup(cLayers).addTo(map);
+  var cityGroup = L.layerGroup([]);
+
+  map.on('zoomend', function() {{
+    if (map.getZoom() >= 6) {{
+      if (!map.hasLayer(cityGroup)) map.addLayer(cityGroup);
+      if (map.hasLayer(countryGroup)) map.removeLayer(countryGroup);
+    }} else {{
+      if (map.hasLayer(cityGroup)) map.removeLayer(cityGroup);
+      if (!map.hasLayer(countryGroup)) map.addLayer(countryGroup);
+    }}
   }});
 }})();
 </script>
@@ -1171,6 +1294,21 @@ def build_country(country, out_dir):
     # Build map markers JSON
     import json as _json
     map_markers = _json.dumps(VISITED_COUNTRIES_MAP)
+
+    # Build city markers JSON
+    city_markers_list = []
+    for c in COUNTRIES:
+        for city in c["cities"]:
+            coords = CITY_COORDS.get(city["key"])
+            if coords:
+                city_markers_list.append({
+                    "name": city["name"],
+                    "country": city.get("country_label", c["name"]),
+                    "lat": coords[0],
+                    "lng": coords[1],
+                    "page": c["key"] + ".html#" + city["key"]
+                })
+    city_markers = _json.dumps(city_markers_list)
 
     html = f"""<!DOCTYPE html>
 <html lang="en">

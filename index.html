@@ -41,7 +41,7 @@
   <p>I love travelling and love to share what I found interesting about the places I have visited. These are my notes, not a complete guide. There is always more to discover and things I have missed.</p>
   <div class="site-stats">
     <div class="stat"><span class="stat-num">24</span><span class="stat-label">countries</span></div>
-    <div class="stat"><span class="stat-num">74</span><span class="stat-label">cities</span></div>
+    <div class="stat"><span class="stat-num">75</span><span class="stat-label">cities</span></div>
     <div class="stat stat-dream"><span class="stat-label">Next big dream: a long trip across Asia</span></div>
   </div>
 </header>
@@ -110,7 +110,7 @@
     <div style="background-image:url('https://images.unsplash.com/photo-1516550893923-42d28e5677af?w=1200&q=80');" class="city-card-bg"></div>
     <div class="city-card-overlay"></div>
     <div class="city-card-body">
-      <span class="city-card-status">🗺 &nbsp; 16 cities</span>
+      <span class="city-card-status">🗺 &nbsp; 17 cities</span>
       <div class="city-card-name">Central Europe</div>
       <div class="city-card-teaser">Vienna, Budapest, Prague area, Switzerland, Benelux, France and Germany. A mix of very dif...</div>
     </div>
@@ -165,7 +165,8 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
 (function() {
-  var markers = [{"name": "Albania", "lat": 41.1533, "lng": 20.1683}, {"name": "Greece", "lat": 39.0742, "lng": 21.8243}, {"name": "England", "lat": 52.3555, "lng": -1.1743}, {"name": "Scotland", "lat": 56.4907, "lng": -4.2026}, {"name": "Wales", "lat": 52.1307, "lng": -3.7837}, {"name": "Spain", "lat": 40.4637, "lng": -3.7492}, {"name": "Italy", "lat": 41.8719, "lng": 12.5674}, {"name": "Kosovo", "lat": 42.6026, "lng": 20.903}, {"name": "Montenegro", "lat": 42.7087, "lng": 19.3744}, {"name": "Croatia", "lat": 45.1, "lng": 15.2}, {"name": "North Macedonia", "lat": 41.6086, "lng": 21.7453}, {"name": "Austria", "lat": 47.5162, "lng": 14.5501}, {"name": "Hungary", "lat": 47.1625, "lng": 19.5033}, {"name": "Slovakia", "lat": 48.669, "lng": 19.699}, {"name": "Czech Republic", "lat": 49.8175, "lng": 15.473}, {"name": "Germany", "lat": 51.1657, "lng": 10.4515}, {"name": "Switzerland", "lat": 46.8182, "lng": 8.2275}, {"name": "Luxembourg", "lat": 49.8153, "lng": 6.1296}, {"name": "Belgium", "lat": 50.5039, "lng": 4.4699}, {"name": "France", "lat": 46.2276, "lng": 2.2137}, {"name": "Netherlands", "lat": 52.1326, "lng": 5.2913}, {"name": "Romania", "lat": 45.9432, "lng": 24.9668}, {"name": "Turkey", "lat": 38.9637, "lng": 35.2433}];
+  var countryMarkers = [{"name": "Albania", "lat": 41.1533, "lng": 20.1683}, {"name": "Greece", "lat": 39.0742, "lng": 21.8243}, {"name": "England", "lat": 52.3555, "lng": -1.1743}, {"name": "Scotland", "lat": 56.4907, "lng": -4.2026}, {"name": "Wales", "lat": 52.1307, "lng": -3.7837}, {"name": "Spain", "lat": 40.4637, "lng": -3.7492}, {"name": "Italy", "lat": 41.8719, "lng": 12.5674}, {"name": "Kosovo", "lat": 42.6026, "lng": 20.903}, {"name": "Montenegro", "lat": 42.7087, "lng": 19.3744}, {"name": "Croatia", "lat": 45.1, "lng": 15.2}, {"name": "North Macedonia", "lat": 41.6086, "lng": 21.7453}, {"name": "Austria", "lat": 47.5162, "lng": 14.5501}, {"name": "Hungary", "lat": 47.1625, "lng": 19.5033}, {"name": "Slovakia", "lat": 48.669, "lng": 19.699}, {"name": "Czech Republic", "lat": 49.8175, "lng": 15.473}, {"name": "Germany", "lat": 51.1657, "lng": 10.4515}, {"name": "Switzerland", "lat": 46.8182, "lng": 8.2275}, {"name": "Luxembourg", "lat": 49.8153, "lng": 6.1296}, {"name": "Belgium", "lat": 50.5039, "lng": 4.4699}, {"name": "France", "lat": 46.2276, "lng": 2.2137}, {"name": "Netherlands", "lat": 52.1326, "lng": 5.2913}, {"name": "Romania", "lat": 45.9432, "lng": 24.9668}, {"name": "Turkey", "lat": 38.9637, "lng": 35.2433}];
+  var cityMarkers = [{"name": "Tirana", "country": "Albania", "lat": 41.3275, "lng": 19.8187, "page": "albania.html#tirana"}, {"name": "Elbasan", "country": "Albania", "lat": 41.1125, "lng": 20.0822, "page": "albania.html#elbasan"}, {"name": "Gjirokaster", "country": "Albania", "lat": 40.0758, "lng": 20.1389, "page": "albania.html#gjirokaster"}, {"name": "Pogradec", "country": "Albania", "lat": 40.9025, "lng": 20.6553, "page": "albania.html#pogradec"}, {"name": "Durres", "country": "Albania", "lat": 41.3246, "lng": 19.4565, "page": "albania.html#durres"}, {"name": "Sarande", "country": "Albania", "lat": 39.875, "lng": 20.0069, "page": "albania.html#sarande"}, {"name": "Vlore", "country": "Albania", "lat": 40.4667, "lng": 19.4833, "page": "albania.html#vlore"}, {"name": "Korce", "country": "Albania", "lat": 40.6186, "lng": 20.7808, "page": "albania.html#korce"}, {"name": "Athens", "country": "Greece", "lat": 37.9838, "lng": 23.7275, "page": "greece.html#athens"}, {"name": "Thessaloniki", "country": "Greece", "lat": 40.6401, "lng": 22.9444, "page": "greece.html#thessaloniki"}, {"name": "Kalamata", "country": "Greece", "lat": 37.0365, "lng": 22.1142, "page": "greece.html#kalamata"}, {"name": "Ioannina", "country": "Greece", "lat": 39.665, "lng": 20.8537, "page": "greece.html#ioannina"}, {"name": "Corfu", "country": "Greece", "lat": 39.6243, "lng": 19.9217, "page": "greece.html#corfu"}, {"name": "Kefalonia", "country": "Greece", "lat": 38.1753, "lng": 20.5693, "page": "greece.html#kefalonia"}, {"name": "Chalcis", "country": "Greece", "lat": 38.4624, "lng": 23.603, "page": "greece.html#chalcis"}, {"name": "Volos", "country": "Greece", "lat": 39.3666, "lng": 22.9389, "page": "greece.html#volos"}, {"name": "Methoni", "country": "Greece", "lat": 36.8197, "lng": 21.7058, "page": "greece.html#methoni"}, {"name": "Kastoria", "country": "Greece", "lat": 40.5194, "lng": 21.2686, "page": "greece.html#kastoria"}, {"name": "London", "country": "England", "lat": 51.5074, "lng": -0.1278, "page": "uk.html#london"}, {"name": "Brighton", "country": "England", "lat": 50.8225, "lng": -0.1372, "page": "uk.html#brighton"}, {"name": "Bath", "country": "England", "lat": 51.3751, "lng": -2.3617, "page": "uk.html#bath"}, {"name": "Bristol", "country": "England", "lat": 51.4545, "lng": -2.5879, "page": "uk.html#bristol"}, {"name": "Cardiff", "country": "Wales", "lat": 51.4816, "lng": -3.1791, "page": "uk.html#cardiff"}, {"name": "Birmingham", "country": "England", "lat": 52.4862, "lng": -1.8904, "page": "uk.html#birmingham"}, {"name": "Edinburgh", "country": "Scotland", "lat": 55.9533, "lng": -3.1883, "page": "uk.html#edinburgh"}, {"name": "Glasgow", "country": "Scotland", "lat": 55.8642, "lng": -4.2518, "page": "uk.html#glasgow"}, {"name": "Liverpool", "country": "England", "lat": 53.4084, "lng": -2.9916, "page": "uk.html#liverpool"}, {"name": "Manchester", "country": "England", "lat": 53.4808, "lng": -2.2426, "page": "uk.html#manchester"}, {"name": "Southampton", "country": "England", "lat": 50.9097, "lng": -1.4044, "page": "uk.html#southampton"}, {"name": "Poole", "country": "England", "lat": 50.715, "lng": -1.987, "page": "uk.html#poole"}, {"name": "Portsmouth", "country": "England", "lat": 50.8198, "lng": -1.088, "page": "uk.html#portsmouth"}, {"name": "Worthing", "country": "England", "lat": 50.812, "lng": -0.3714, "page": "uk.html#worthing"}, {"name": "Leeds", "country": "England", "lat": 53.8008, "lng": -1.5491, "page": "uk.html#leeds"}, {"name": "Oxford", "country": "England", "lat": 51.752, "lng": -1.2577, "page": "uk.html#oxford"}, {"name": "Cambridge", "country": "England", "lat": 52.2053, "lng": 0.1218, "page": "uk.html#cambridge"}, {"name": "Windsor", "country": "England", "lat": 51.4839, "lng": -0.6044, "page": "uk.html#windsor"}, {"name": "Barcelona", "country": "Spain", "lat": 41.3851, "lng": 2.1734, "page": "spain.html#barcelona"}, {"name": "Seville", "country": "Spain", "lat": 37.3891, "lng": -5.9845, "page": "spain.html#seville"}, {"name": "Cordoba", "country": "Spain", "lat": 37.8882, "lng": -4.7794, "page": "spain.html#cordoba"}, {"name": "Granada", "country": "Spain", "lat": 37.1773, "lng": -3.5986, "page": "spain.html#granada"}, {"name": "Malaga", "country": "Spain", "lat": 36.7213, "lng": -4.4214, "page": "spain.html#malaga"}, {"name": "Ronda", "country": "Spain", "lat": 36.7466, "lng": -5.1612, "page": "spain.html#ronda"}, {"name": "Cadiz", "country": "Spain", "lat": 36.5298, "lng": -6.2927, "page": "spain.html#cadiz"}, {"name": "Rome", "country": "Italy", "lat": 41.9028, "lng": 12.4964, "page": "italy.html#rome"}, {"name": "Venice", "country": "Italy", "lat": 45.4408, "lng": 12.3155, "page": "italy.html#venice"}, {"name": "Florence", "country": "Italy", "lat": 43.7696, "lng": 11.2558, "page": "italy.html#florence"}, {"name": "Pisa", "country": "Italy", "lat": 43.7228, "lng": 10.4017, "page": "italy.html#pisa"}, {"name": "Prizren", "country": "Kosovo", "lat": 42.2139, "lng": 20.7397, "page": "balkans.html#prizren"}, {"name": "Budva", "country": "Montenegro", "lat": 42.2864, "lng": 18.84, "page": "balkans.html#budva"}, {"name": "Dubrovnik", "country": "Croatia", "lat": 42.6507, "lng": 18.0944, "page": "balkans.html#dubrovnik"}, {"name": "Split", "country": "Croatia", "lat": 43.5081, "lng": 16.4402, "page": "balkans.html#split"}, {"name": "Ohrid", "country": "North Macedonia", "lat": 41.1231, "lng": 20.8016, "page": "balkans.html#ohrid"}, {"name": "Struga", "country": "North Macedonia", "lat": 41.1781, "lng": 20.6783, "page": "balkans.html#struga"}, {"name": "Skopje", "country": "North Macedonia", "lat": 41.9973, "lng": 21.428, "page": "balkans.html#skopje"}, {"name": "Vienna", "country": "Austria", "lat": 48.2082, "lng": 16.3738, "page": "central-europe.html#vienna"}, {"name": "Budapest", "country": "Hungary", "lat": 47.4979, "lng": 19.0402, "page": "central-europe.html#budapest"}, {"name": "Bratislava", "country": "Slovakia", "lat": 48.1486, "lng": 17.1077, "page": "central-europe.html#bratislava"}, {"name": "Brno", "country": "Czech Republic", "lat": 49.1951, "lng": 16.6068, "page": "central-europe.html#brno"}, {"name": "Heidelberg", "country": "Germany", "lat": 49.3988, "lng": 8.6724, "page": "central-europe.html#heidelberg"}, {"name": "Dusseldorf", "country": "Germany", "lat": 51.2217, "lng": 6.7762, "page": "central-europe.html#dusseldorf"}, {"name": "Zurich", "country": "Switzerland", "lat": 47.3769, "lng": 8.5417, "page": "central-europe.html#zurich"}, {"name": "Luxembourg", "country": "Luxembourg", "lat": 49.6116, "lng": 6.1319, "page": "central-europe.html#luxembourg"}, {"name": "Brussels", "country": "Belgium", "lat": 50.8503, "lng": 4.3517, "page": "central-europe.html#brussels"}, {"name": "Bruges", "country": "Belgium", "lat": 51.2093, "lng": 3.2247, "page": "central-europe.html#bruges"}, {"name": "Ghent", "country": "Belgium", "lat": 51.0543, "lng": 3.7174, "page": "central-europe.html#ghent"}, {"name": "Paris", "country": "France", "lat": 48.8566, "lng": 2.3522, "page": "central-europe.html#paris"}, {"name": "Eindhoven", "country": "Netherlands", "lat": 51.4416, "lng": 5.4697, "page": "central-europe.html#eindhoven"}, {"name": "Amsterdam", "country": "Netherlands", "lat": 52.3676, "lng": 4.9041, "page": "central-europe.html#amsterdam"}, {"name": "The Hague", "country": "Netherlands", "lat": 52.0705, "lng": 4.3007, "page": "central-europe.html#the-hague"}, {"name": "Leiden", "country": "Netherlands", "lat": 52.1601, "lng": 4.497, "page": "central-europe.html#leiden"}, {"name": "Rotterdam", "country": "Netherlands", "lat": 51.9244, "lng": 4.4777, "page": "central-europe.html#rotterdam"}, {"name": "Gibraltar", "country": "United Kingdom", "lat": 36.1408, "lng": -5.3536, "page": "gibraltar.html#gibraltar"}, {"name": "Craiova", "country": "Romania", "lat": 44.3302, "lng": 23.7949, "page": "romania.html#craiova"}, {"name": "Antalya", "country": "Turkey", "lat": 36.8969, "lng": 30.7133, "page": "turkey.html#antalya"}, {"name": "Side", "country": "Turkey", "lat": 36.7675, "lng": 31.3889, "page": "turkey.html#side"}];
   var map = L.map('trip-map', {
     center: [50, 15],
     zoom: 4,
@@ -173,18 +174,41 @@
     zoomControl: true
   });
   L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>',
-    maxZoom: 10,
+    attribution: '&copy; OpenStreetMap &copy; CARTO',
+    maxZoom: 12,
     minZoom: 3
   }).addTo(map);
-  var dot = L.divIcon({
+
+  var countryDot = L.divIcon({
     className: '',
-    html: '<div style="width:10px;height:10px;background:#c05a2e;border-radius:50%;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,0.3);"></div>',
-    iconSize: [10,10],
-    iconAnchor: [5,5]
+    html: '<div style="width:12px;height:12px;background:#c05a2e;border-radius:50%;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,0.35);"></div>',
+    iconSize: [12,12], iconAnchor: [6,6]
   });
-  markers.forEach(function(m) {
-    L.marker([m.lat, m.lng], {icon: dot}).addTo(map).bindPopup(m.name);
+  var cityDot = L.divIcon({
+    className: '',
+    html: '<div style="width:7px;height:7px;background:#e8a07a;border-radius:50%;border:1.5px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,0.25);"></div>',
+    iconSize: [7,7], iconAnchor: [3.5,3.5]
+  });
+
+  var cLayers = [], ciLayers = [];
+  countryMarkers.forEach(function(m) {
+    cLayers.push(L.marker([m.lat, m.lng], {icon: countryDot}).bindPopup('<strong>' + m.name + '</strong>'));
+  });
+  cityMarkers.forEach(function(m) {
+    ciLayers.push(L.marker([m.lat, m.lng], {icon: cityDot}).bindPopup(m.name + '<br><small>' + m.country + '</small>'));
+  });
+
+  var countryGroup = L.layerGroup(cLayers).addTo(map);
+  var cityGroup = L.layerGroup([]);
+
+  map.on('zoomend', function() {
+    if (map.getZoom() >= 6) {
+      if (!map.hasLayer(cityGroup)) map.addLayer(cityGroup);
+      if (map.hasLayer(countryGroup)) map.removeLayer(countryGroup);
+    } else {
+      if (map.hasLayer(cityGroup)) map.removeLayer(cityGroup);
+      if (!map.hasLayer(countryGroup)) map.addLayer(countryGroup);
+    }
   });
 })();
 </script>

@@ -422,3 +422,27 @@ footer {
 @media(max-width:600px){
   .stat-dream { border-left: none; padding-left: 0; margin-left: 0; border-top: 1px solid var(--rule); padding-top: 1rem; }
 }
+
+/* PHOTO ALBUM - click to open */
+.photo-album {
+  margin-top: 1.2rem;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.photo-album summary {
+  padding: 0.7rem 1rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--ink-mid);
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+  background: var(--tip-bg, #f0ede8);
+  transition: background 0.2s;
+}
+.photo-album summary::-webkit-details-marker { display: none; }
+.photo-album summary:hover { color: var(--accent); }
+.photo-album[open] summary { border-bottom: 1px solid var(--rule); }
+.photo-album-inner { padding: 0.8rem; }
