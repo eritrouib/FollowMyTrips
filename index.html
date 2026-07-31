@@ -195,11 +195,11 @@
     cLayers.push(L.marker([m.lat, m.lng], {icon: countryDot}).bindPopup('<strong>' + m.name + '</strong>'));
   });
   cityMarkers.forEach(function(m) {
-    ciLayers.push(L.marker([m.lat, m.lng], {icon: cityDot}).bindPopup(m.name + '<br><small>' + m.country + '</small>'));
+    var popup = '<strong>' + m.name + '</strong><br><small>' + m.country + '</small><br><a href="' + m.page + '" style="color:#c05a2e;font-size:0.8rem;">Go to page &rarr;</a>'; ciLayers.push(L.marker([m.lat, m.lng], {icon: cityDot}).bindPopup(popup));
   });
 
   var countryGroup = L.layerGroup(cLayers).addTo(map);
-  var cityGroup = L.layerGroup([]);
+  var cityGroup = L.layerGroup(ciLayers);
 
   map.on('zoomend', function() {
     if (map.getZoom() >= 6) {

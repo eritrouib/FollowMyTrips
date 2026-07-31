@@ -685,7 +685,7 @@ COUNTRIES = [
                 "intro": "A city that works very well if you plan ahead. We went with kids and it was great but a few things to know before you go.",
                 "tips": [
                     {"label": "Getting there by train with kids", "text": "If travelling with children under 12, look into the <strong>Railrunner</strong> ticket. It costs only 2.50 euros per child and covers them on the train. Worth checking before you book full price tickets for the family.", "neutral": False},
-                    {"label": "Public transport in Amsterdam", "text": "The GVB (city transport) day ticket for children under 12 costs around 5 euros but you can only buy it at specific stations, not all of them. Check the <a href=\'https://en.gvb.nl/\' target=\'_blank\' rel=\'noopener\'>GVB website</a> before you go to find which ones near you sell it.", "neutral": False},
+                    {"label": "Public transport in Amsterdam", "text": "The GVB (city transport) day ticket for children under 12 costs around 5 euros but you can only buy it at specific stations, not all of them. Check the <a href=\'https://www.gvb.nl/en/travel-products/hour-and-day-tickets/gvb-day-ticket-child\' target=\'_blank\' rel=\'noopener\'>GVB day ticket child</a> for details and where to buy.", "neutral": False},
                     {"label": "Book museums well ahead", "text": "The Anne Frank House sells out very fast on the official site. Book nearly a month before your visit if you can. Do not rely on getting tickets on the day.", "neutral": False},
                     {"label": "Toilets in the city centre", "text": "Worth knowing if you are with children: many places in the city centre will not let you use the restroom unless you are a paying customer. This can be handled quite rudely. Plan ahead when you are out with kids.", "neutral": True},
                     {"label": "Food prices", "text": "Generally found food prices quite expensive in restaurants. The markets and food halls are much better value.", "neutral": True},
@@ -1247,11 +1247,11 @@ def build_index(out_dir):
     cLayers.push(L.marker([m.lat, m.lng], {{icon: countryDot}}).bindPopup('<strong>' + m.name + '</strong>'));
   }});
   cityMarkers.forEach(function(m) {{
-    ciLayers.push(L.marker([m.lat, m.lng], {{icon: cityDot}}).bindPopup(m.name + '<br><small>' + m.country + '</small>'));
+    var popup = '<strong>' + m.name + '</strong><br><small>' + m.country + '</small><br><a href="' + m.page + '" style="color:#c05a2e;font-size:0.8rem;">Go to page &rarr;</a>'; ciLayers.push(L.marker([m.lat, m.lng], {{icon: cityDot}}).bindPopup(popup));
   }});
 
   var countryGroup = L.layerGroup(cLayers).addTo(map);
-  var cityGroup = L.layerGroup([]);
+  var cityGroup = L.layerGroup(ciLayers);
 
   map.on('zoomend', function() {{
     if (map.getZoom() >= 6) {{
