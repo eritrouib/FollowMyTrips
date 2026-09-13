@@ -58,7 +58,7 @@ COUNTRIES = [
         "name": "Albania",
         "flag": "🇦🇱",
         "photo": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&q=80",
-        "intro": "I grew up in Elbasan and have been back many times. Albania has an ancient history that goes back well before any empire passed through it, and most visitors only scratch the surface. Fortified hilltop towns, Greek and Roman ruins, mountains that rival anywhere in Europe, an Ionian coast with fewer people than Greece in summer, and prices that are still very reasonable.",
+        "intro": "I grew up in Elbasan and have been back many times. Albania has an ancient history that goes back well before any empire passed through it, and most visitors only scratch the surface. Fortified hilltop towns, Greek and Roman ruins, mountains that rival anywhere in Europe, an Ionian coast with fewer people than Greece in summer, and prices that are still very reasonable. I also put together an interactive story map of the top 10 locations: <a href='https://storymaps.arcgis.com/stories/074c72e721b849449a4dad4c6e9c78cc' target='_blank' rel='noopener'>view the Albania story map</a>.",
         "cities": [
             {
                 "key": "tirana",
@@ -668,6 +668,10 @@ COUNTRIES = [
                 "intro": "", "tips": [], "places": [], "food": [],
             },
             {
+                "key": "lille", "name": "Lille", "country_label": "France", "status": "Visited",
+                "intro": "", "tips": [], "places": [], "food": [],
+            },
+            {
                 "key": "eindhoven",
                 "name": "Eindhoven",
                 "country_label": "Netherlands",
@@ -886,6 +890,7 @@ CITY_COORDS = {
     "zurich": (47.3769, 8.5417), "luxembourg": (49.6116, 6.1319),
     "brussels": (50.8503, 4.3517), "bruges": (51.2093, 3.2247),
     "ghent": (51.0543, 3.7174), "paris": (48.8566, 2.3522),
+    "lille": (50.6292, 3.0573),
     "eindhoven": (51.4416, 5.4697), "amsterdam": (52.3676, 4.9041),
     "the-hague": (52.0705, 4.3007), "rotterdam": (51.9244, 4.4777),
     "leiden": (52.1601, 4.4970),
@@ -1168,7 +1173,7 @@ def build_index(out_dir):
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{SITE_NAME}</title>
 <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
 <style>
 .site-header{{padding:5rem 2rem 4rem;max-width:920px;margin:0 auto;border-bottom:1px solid var(--rule);}}
 .site-header h1{{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,3.5rem);font-weight:400;line-height:1.15;margin-bottom:1.2rem;}}
@@ -1201,7 +1206,7 @@ def build_index(out_dir):
 </header>
 <div style="max-width:1100px;margin:0 auto;padding:2rem 2rem 0;">
   <p style="font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-light);font-weight:500;margin-bottom:1rem;">Where I have been</p>
-  <div id="trip-map" style="height:420px;border-radius:3px;border:1px solid var(--rule);"></div>
+  <div id="trip-map" style="height:420px;border-radius:3px;border:1px solid var(--rule);background:#f5f3f0;display:flex;align-items:center;justify-content:center;"><p style="color:#9c958f;font-size:0.85rem;font-family:Inter,sans-serif;">Loading map...</p></div><div id="trip-map-real" style="height:420px;border-radius:3px;border:1px solid var(--rule);display:none;"></div>
 </div>
 
 <div class="city-grid">
@@ -1214,8 +1219,26 @@ def build_index(out_dir):
   {giscus_block()}
 </div>
 {footer()}
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
+(function() {{
+  var mapEl = document.getElementById('trip-map');
+  var loaded = false;
+  function loadMap() {{
+    if (loaded) return; loaded = true;
+    var css = document.createElement('link');
+    css.rel = 'stylesheet';
+    css.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
+    document.head.appendChild(css);
+    var js = document.createElement('script');
+    js.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+    js.onload = initMap;
+    document.head.appendChild(js);
+  }}
+  if ('IntersectionObserver' in window) {{
+    new IntersectionObserver(function(e) {{ if (e[0].isIntersecting) loadMap(); }}, {{rootMargin:'300px'}}).observe(mapEl);
+  }} else {{ loadMap(); }}
+}})();
+function initMap() {{
 (function() {{
   var countryMarkers = {map_markers};
   var cityMarkers = {city_markers};
@@ -1225,8 +1248,8 @@ def build_index(out_dir):
     scrollWheelZoom: false,
     zoomControl: true
   }});
-  L.tileLayer('https://{{s}}.basemaps.cartocdn.com/light_all/{{z}}/{{x}}/{{y}}{{r}}.png', {{
-    attribution: '&copy; OpenStreetMap &copy; CARTO',
+  L.tileLayer('https://{{s}}.tile.openstreetmap.org/{{z}}/{{x}}/{{y}}.png', {{
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     maxZoom: 12,
     minZoom: 3
   }}).addTo(map);
@@ -1263,6 +1286,7 @@ def build_index(out_dir):
     }}
   }});
 }})();
+}}
 </script>
 </body>
 </html>"""
